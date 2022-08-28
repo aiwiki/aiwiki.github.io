@@ -182,7 +182,7 @@ paginate: 5
 
 
 utterances:
-  repo: "aiwiki/aiwiki-comments"
+  repo: "aiwiki/aiwiki.github.io"
   issue_term: "title"
   label: "utterances comment"
   theme: "github-light"
