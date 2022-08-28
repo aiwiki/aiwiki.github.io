@@ -45,7 +45,7 @@ copyright: "AI Wiki (cleft) 2022-{currentYear} {author}"
 description: >- # this means to ignore newlines until "baseurl:"
   
 
-baseurl: "/aiwiki" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. https://example.com
 favicon:  "https://raw.githubusercontent.com/AI-CLUB-IUH/ai-wiki-blog/master/assets/images/icons/h2.png" # the favicon for your site
 
