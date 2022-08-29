@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hướng dẫn sử dụng và cài đặt Anaconda & Jupyter notebook"
+title:  "Hướng dẫn cài đặt và sử dụng Anaconda & Jupyter notebook"
 categories: [ Tutorial ]
 tags: [tuturial, python, jupyter, anaconda]
 author: goiliace
