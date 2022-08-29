@@ -3,7 +3,7 @@ layout: post
 title:  "Hướng dẫn sử dụng và cài đặt Anaconda & Jupyter notebook"
 categories: [ Welcome ]
 author: goiliace
-description: ""
+description: "Anaconda là một nền tảng phân phối miễn phí của ngôn ngữ lập trình Python và R cho tính toán khoa học (khoa học dữ liệu, machine learning, xử lý dữ liệu lớn, phân tích dự đoán, v.v.), nhằm mục đích đơn giản hóa việc quản lý và triển khai gói. Nó có trên cả Windows, MacOS và Linux. Trong bài viết này chúng ta sẽ cùng nhau tìm hiểu về cách cài đặt và sử dụng Anaconda & Jupyter notebook"
 ---
 
 ## Nội dung
