@@ -9,9 +9,6 @@ Trong bài viết này chúng ta sẽ cùng nhau tìm hiểu về cách cài đ�
 ---
 
 ## Nội dung
-- [1. Anaconda là gì?](#-anaconda)
-- [2. Hướng dẫn sử dụng Colab"](#-colab)
-- [3. Hướng dẫn cài đặt jupyter notebook](#-tong-ket)
 
 ### 1. Anaconda là gì?
 
