@@ -98,6 +98,6 @@ Bạn có thể code trên các cell riêng biệt hoặc chọn Markdown để 
 Trên đây là toàn bộ hướng dẫn sử dụng và cài đặt Anaconda & Jupyter notebook trên Windows. Nếu có thắc mắc hay góp ý gì bạn vui lòng để lại bình luận hoặc nhắn tin cho tôi tại <a href = "https://www.facebook.com/suzii.bad/"> đây </a>
 
 ### Nguồn tham khảo:
-- <a href = "https://www.datacamp.com/tutorial/installing-anaconda-windows" >Installing Anaconda on Windows Tutorial</a>
-- <a href = "https://docs.anaconda.com/anaconda/install/"> Anaconda document installation</a>
-- <a href = "https://nttuan8.com/huong-dan-cai-dat-anaconda/"> Hướng dẫn cài đặt anaconda</a>
+- <a href = "https://www.datacamp.com/tutorial/installing-anaconda-windows" >Installing Anaconda on Windows Tutorial - Data camp</a>
+- <a href = "https://docs.anaconda.com/anaconda/install/"> Anaconda document installation -anacoda docs</a>
+- <a href = "https://nttuan8.com/huong-dan-cai-dat-anaconda/"> Hướng dẫn cài đặt anaconda - nttuan</a>
