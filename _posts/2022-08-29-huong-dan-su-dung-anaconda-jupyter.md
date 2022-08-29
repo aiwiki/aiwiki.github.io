@@ -100,3 +100,4 @@ Trên đây là toàn bộ hướng dẫn sử dụng và cài đặt Anaconda &
 ### Nguồn tham khảo:
 - <a href = "https://www.datacamp.com/tutorial/installing-anaconda-windows" >Installing Anaconda on Windows Tutorial</a>
 - <a href = "https://docs.anaconda.com/anaconda/install/"> Anaconda document installation</a>
+- <a href = "https://nttuan8.com/huong-dan-cai-dat-anaconda/"> Hướng dẫn cài đặt anaconda</a>
