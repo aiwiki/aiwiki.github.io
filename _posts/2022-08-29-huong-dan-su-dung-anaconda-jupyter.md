@@ -89,6 +89,7 @@ Click vào new chọn Python3 để tạo 1 notebook mới
 Chọn Untitled để đổi lại tên khác
 
 ![](/assets/anaconda/anh_12.png)
+
 Bạn có thể code trên các cell riêng biệt hoặc chọn Markdown để viết markdown cho code 
 
 ![](/assets/anaconda/anh_13.png)
@@ -99,5 +100,5 @@ Trên đây là toàn bộ hướng dẫn sử dụng và cài đặt Anaconda &
 
 ### Nguồn tham khảo:
 - <a href = "https://www.datacamp.com/tutorial/installing-anaconda-windows" >Installing Anaconda on Windows Tutorial - Data camp</a>
-- <a href = "https://docs.anaconda.com/anaconda/install/"> Anaconda document installation -anacoda docs</a>
+- <a href = "https://docs.anaconda.com/anaconda/install/"> Anaconda document installation - anacoda docs</a>
 - <a href = "https://nttuan8.com/huong-dan-cai-dat-anaconda/"> Hướng dẫn cài đặt anaconda - nttuan</a>
