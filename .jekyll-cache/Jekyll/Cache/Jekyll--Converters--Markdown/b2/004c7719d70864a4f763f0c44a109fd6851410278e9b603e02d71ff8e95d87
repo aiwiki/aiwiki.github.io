@@ -1,0 +1,151 @@
+I"�Q<h2 id="nội-dung">Nội dung</h2>
+<ul>
+  <li><a href="#-dinh-nghia">1. Định nghĩa Markov chain</a></li>
+  <li><a href="#-bai-toan-sang-nay-an-gi">2. Bài toán “sáng nay ăn gì”</a></li>
+  <li><a href="#-tong-ket">3. Tổng kết</a></li>
+</ul>
+
+<p>Trong bài viết này, chúng ta sẽ đi qua sơ lược về định nghĩa của Markov chain, từ đó hiểu thêm về Markov chain để ứng dụng vào một bài toán và thực nghiệm bằng Python.</p>
+
+<p><a name="-dinh-nghia"></a></p>
+
+<h3 id="1-định-nghĩa-markov-chain">1. Định nghĩa Markov chain</h3>
+
+<p>Markov chain (<a href="https://en.wikipedia.org/wiki/Markov_chain" target="_blank">chuỗi Markov</a>), được đặt theo tên nhà toán học người Nga <a href="https://en.wikipedia.org/wiki/Andrey_Markov" target="_blank">Andrey Markov</a>, là một mô hình ngẫu nhiên hay <a href="https://en.wikipedia.org/wiki/Stochastic_process" target="_blank">tiến trình ngẫu nhiên</a> mô tả một chuỗi các sự kiện có khả năng xảy ra, mà xác suất để xảy ra sự kiện tiếp theo phụ thuộc chỉ vào sự kiện hiện tại. Đây là một mô hình <em>“không có trí nhớ”</em> (memorylessness), nghĩa là các sự kiện xảy ra trong quá khứ sẽ không được ghi nhớ, sự kiện trong tương lai chỉ phụ thuộc sự kiện hiện tại của mô hình.</p>
+
+<p>Markov chain là sự kết hợp bởi 2 thành phần: tập trạng thái $Q$ và ma trận chuyển đổi giữa các trạng thái $P$ (ma trận này sẽ là ma trận vuông).</p>
+
+<p><strong>Ví dụ</strong>, ta định nghĩa Markov chain $\text{MC}$ có:</p>
+<ul>
+  <li>Tập trạng thái là $Q = { Q_1, Q_2, Q_3 }$</li>
+  <li>Ma trận chuyển đổi giứa các trạng thái là $\begin{aligned} P = \begin{bmatrix} P_{11} &amp; P_{12} &amp; P_{13} \newline P_{21} &amp; P_{22} &amp; P_{23} \newline P_{31} &amp; P_{32} &amp; P_{33} \end{bmatrix}\end{aligned}$</li>
+</ul>
+
+<p>Markov chain $\text{MC}$ sẽ có hình dạng trông giống như một đồ thị có hướng, có trọng số, với các node trên đồ thị là các trạng thái trong tập trạng thái của Markov chain, và các trọng số trên các cạnh của đồ thị mô tả xác suất chuyển $P_{ij}$, là xác suất để di chuyển từ trạng thái $Q_i$ đến trạng thái $Q_j$. Nếu $P_{ij} = 0$, ta ngầm hiểu rằng không thể di chuyển giữa hai trạng thái $Q_i$ và $Q_j$. ⚠️ <strong>Lưu ý</strong> là các trạng thái cũng có thể quay trở về chính nó, ví dụ $P_{33}$ là xác suất để thời điểm hiện tại, Markov chain đang ở trạng thái $Q_3$ và thời điểm tiếp theo sẽ quay trở lại $Q_3$. Hình dưới đây mô tả Markov chain $\text{MC}$.</p>
+
+<p><img src="https://raw.githubusercontent.com/tuanio/tuanio.github.io/main/assets/markov_chain/mc_ex.png" alt="mc_ex" /></p>
+
+<p>Để quan sát được đường đi của các trạng thái trong Markov chain, ta cần định nghĩa quan sát $X = (X_1, X_2, \cdots, X_t, \cdots, X_T)$ là một vector có $T$ thành phần, mô tả các quan sát của Markov chain theo thời gian, $X_t \in Q$. $X=(X_1 = Q_1, X_2 = Q_1, X_3 = Q_2, X_4 = Q_3)$ là một ví dụ về chuỗi quan sát các trạng thái của Markov chain, với xác suất xảy ra chuỗi quan sát này là tích các xác suất chuyển đổi, $P(X) = \prod_{i=1}^{T-1} X_{i}X_{i+1}$, trong ví dụ của chúng ta thì sẽ là $P(X) = P_{11}P_{12}P_{23}$, trên thực tế, ta có thể lấy logarit của $P(X)$, tạo thuận lợi cho việc tính toán, tránh bị tràn số trong các chương trình máy tính.</p>
+
+<p>Cụ thể hơn về ký hiệu toán học của xác suất chuyển đổi, $P_{ij}=Pr(X_{t+1} = Q_j|X_t = Q_i)$ là xác suất để thời điểm $t$, trạng thái hiện tại của Markov chain là $Q_i$, và trạng thái của quan sát trong tương lai $t+1$ là $Q_{j}$.</p>
+
+<p><a name="-bai-toan-sang-nay-an-gi"></a></p>
+
+<h3 id="2-bài-toán-sáng-nay-ăn-gì">2. Bài toán “Sáng nay ăn gì”</h3>
+
+<p>Giả sử vào một buổi sáng nọ, bạn thức dậy với 2 lần reo chuông báo thức đã qua từ điện thoại, bạn ngồi dậy, với cái bụng đang reo lên, bạn liền suy nghĩ đến việc: sáng hôm nay mình sẽ ăn gì?. Sau khi ra đầu ngõ, bạn đứng trước “ngã tư”: quán phở cô Ba, xe bánh mì cô Hai, cơm tấm chú Sáu và xe súp cua của ông Bảy. Tuy rằng, bạn đã ăn sáng mấy chục năm cuộc đời rồi, nhưng việc lựa chọn món ăn chưa bao giờ là dễ cả. May mắn thay, trong một năm vừa qua, món ăn sáng của mỗi ngày đều đã được bạn lưu trữ trên điện thoại, trong ứng dụng ghi chú (đây chính là data quý giá). Sau khi đọc định nghĩa về Markov chain ở trên, bạn quyết định áp dụng để giải quyết bài toán “sáng nay ăn gì” này.</p>
+
+<p>Đó chỉ là một câu chuyện vui do tôi bịa ra để dẫn vào bài toán có thể giải quyết bằng Markov chain này. Trên thực tế, Markov chain có thể giải các bài toán to lớn hơn, nhưng trước tiên chúng ta cứ giải bài toán kia để bạn có thể lấp đầy cái bụng đã.</p>
+
+<p>Trong ví dụ này, tôi sẽ hiện thực bằng Python, đọc data theo thời gian lên và tìm bộ các trạng thái $Q$, rồi tìm xác suất của ma trận $P$ kia, sau đó chọn ngẫu nhiên trạng thái (món ăn sáng) tiếp theo trên phân phối đã biết của xác suất của trạng thái (món ăn) hiện tại. Bạn có thể tải data ở <a href="https://github.com/tuanio/tuanio.github.io/blob/main/assets/markov_chain/code/breakfast.csv" target="_blank">đây</a></p>
+
+<p>Đối với bộ data ở trên, tập trạng thái của chúng ta sẽ là $Q={\text{Phở}, \text{Cơm tấm}, \text{Bánh mì}, \text{Súp cua}}$</p>
+
+<p>Trước tiên ta sẽ phải import các thư viện cần thiết vào Python</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># tính toán trên ma trận
+</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># đọc dữ liệu từ file csv
+</span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># dùng cho mục đích in "đẹp"
+</span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span> <span class="c1"># để đếm số lượng lần xảy ra của các trạng thái (đơn lẻ và cặp)
+</span></code></pre></div></div>
+
+<p>Đọc dữ liệu và chuyển thành dạng list trong Python để dễ dàng sử dụng</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'breakfast.csv'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">Food</span><span class="p">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># xuất ra 5 món ăn cuối cùng bạn ăn
+</span></code></pre></div></div>
+<pre><code class="language-plain">['Phở', 'Cơm tấm', 'Bánh mì', 'Phở', 'Phở']
+</code></pre>
+
+<p>Để có thể tạo ma trận P, trước tiên ta phải đếm các cặp và các giá trị đơn lẻ trước, sau đó đi chuẩn hóa</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># tạo nơi lưu trữ giá trị
+</span><span class="n">food_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">food_pair_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Đếm các giá trị</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># food_count: đếm số lần xuất hiện của một trạng thái
+# food_pair_count: đếm tất cả các cặp trạng thái có thể [current][future]
+</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">food_count</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># self loop
+</span>        <span class="n">food_pair_count</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">break</span>
+    <span class="n">food_pair_count</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Chuẩn hóa theo tổng hàng</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># chuẩn hóa theo tổng hàng
+</span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">food_pair_count</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">food_pair_count</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">/=</span> <span class="n">food_count</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="c1"># chuẩn hóa
+</span></code></pre></div></div>
+
+<p>Do ma trận không giống như dictionary trong Python, ta chỉ có thể truy cập được bằng chỉ mục (index) của trạng thái, vì vậy ta cần phải có một dictionary lưu trữ các index của các trạng thái</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># lấy index của các món ăn để dễ thao tác
+</span><span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">food_count</span><span class="p">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span>
+<span class="n">key_to_idx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span> <span class="c1"># key to index
+</span><span class="k">print</span><span class="p">(</span><span class="n">key_to_idx</span><span class="p">)</span>
+</code></pre></div></div>
+<pre><code class="language-plain">{'Bánh mì': 0, 'Cơm tấm': 1, 'Phở': 2, 'Súp cua': 3}
+</code></pre>
+
+<p>Ta bây giờ có thể tạo ma trận $P$ từ xác suất đã chuẩn hóa từ bước trên, và nên chuyển từ list sang numpy để tiện lợi cho việc tính toán hơn, do numpy là một thư viện rất mạnh của Python trong việc xử lý các thao tác liên quan đến đại số tuyến tính.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">P</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">food_pair_count</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">P</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n">values</span><span class="p">()))</span>
+        
+<span class="c1"># chuyển list sang numpy để dễ tính toán
+</span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Ma trận chuyển trạng thái P: '</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</code></pre></div></div>
+<pre><code class="language-plain">Ma trận chuyển trạng thái P: 
+array([[0.26582278, 0.26582278, 0.26582278, 0.20253165],
+       [0.25274725, 0.20879121, 0.24175824, 0.2967033 ],
+       [0.28571429, 0.25274725, 0.28571429, 0.17582418],
+       [0.25961538, 0.33653846, 0.21153846, 0.19230769]])
+</code></pre>
+
+<p>Ta có thể kiểm tra tổng hàng xem có bằng $1$ hay chưa, nếu chưa có thể do lỗi ở các bước trước.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># tổng hàng của ma trận phải luôn bằng 1
+</span><span class="k">print</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+<pre><code class="language-plain">[1. 1. 1. 1.] # tất cả đều 1, chuẩn 
+</code></pre>
+
+<p>Bây giờ, phần cuối sẽ đi dự đoán món ăn. Việc dự đoán món ăn (trạng thái) tương lai khá đơn giản, ta có thể hình dung thế này: đứng ở node của trạng thái hiện tại (món ăn cuối cùng của tập dữ liệu - món ăn hôm trước), có một tập các giá trị xác suất tương ứng với trọng số của các cạnh để đi đến node khác, chọn ngẫu nhiên một node để đi đến từ tập xác suất đó (một phân phối), và ta có thể chọn ngẫu nhiên theo phân phối với hàm <code class="language-plaintext highlighter-rouge">numpy.random.choice</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># dự đoán món ăn 
+</span><span class="n">curr_food</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">curr_distribution</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">key_to_idx</span><span class="p">[</span><span class="n">curr_food</span><span class="p">]]</span>
+<span class="n">predicted_food</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">curr_distribution</span><span class="p">)</span> <span class="c1"># random walk with known distribution
+</span><span class="n">predicted_probability</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">key_to_idx</span><span class="p">[</span><span class="n">curr_food</span><span class="p">]][</span><span class="n">key_to_idx</span><span class="p">[</span><span class="n">predicted_food</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<p>In ra kết quả dự đoán</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Món ăn chúng ta ăn hôm trước: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Món ăn nên ăn vào hôm nay là "</span><span class="si">{</span><span class="n">predicted_food</span><span class="si">}</span><span class="s">"</span><span class="se">\
+</span><span class="s"> với khả năng xảy ra là </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">predicted_probability</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s">%'</span><span class="p">)</span>
+</code></pre></div></div>
+<pre><code class="language-plain">Món ăn chúng ta ăn hôm trước: Phở
+Món ăn nên ăn vào hôm nay là "Bánh mì" với khả năng xảy ra là 28.57%
+</code></pre>
+
+<p>Vậy mô hình Markov chain chúng ta đã hiện thực đã dự đoán cho chúng ta món “Bánh mì” vào hôm nay.</p>
+
+<p>⚠️ <strong>Lưu ý</strong>: Các giá trị, số liệu được xuất ra trong bài có thể khác, tùy thuộc vào dữ liệu cung cấp và sự lựa chọn ngẫu nhiên của các hàm trên.</p>
+
+<p><em>Chi tiết toàn bộ code, bạn đọc có thể tham khảo ở <a href="https://github.com/tuanio/tuanio.github.io/blob/main/assets/markov_chain/code/main.ipynb" target="_blank">đây</a></em></p>
+
+<p><a name="-tong-ket"></a></p>
+
+<h3 id="3-tổng-kết">3. Tổng kết</h3>
+
+<p>Trên đây chỉ là một ví dụ nhỏ để mô tả khả năng của Markov chain. Ta có thể bắt gặp Markov chain trong nhiều bài toán khác như xây dựng <a href="https://en.wikipedia.org/wiki/N-gram" target="_blank">mô hình ngôn ngữ n-gram</a> trong lĩnh vực Xử lý ngôn ngữ tự nhiên, có thể ứng dụng vào việc <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">Xếp hạng trang (PageRank)</a> của Google (nhưng trên thực tế, Google sử dụng các mô hình phức tạp hơn Markov chain). Markov chain có thể phát triển lên một dạng khác, <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model" target="_blank">mô hình Markov ẩn</a>, mà có thể ứng dụng trong bài toán <a href="https://en.wikipedia.org/wiki/Speech_recognition" target="_blank">Nhận dạng giọng nói</a>. Và rất nhiều các ứng dụng khác trong các lĩnh vực Vật lý, Hóa học, Sinh học, Lý thuyết hàng đợi, … Bạn đọc có thể đọc thêm ở đường link <a href="https://en.wikipedia.org/wiki/Markov_chain" target="_bank">này</a>.</p>
+
+:ET

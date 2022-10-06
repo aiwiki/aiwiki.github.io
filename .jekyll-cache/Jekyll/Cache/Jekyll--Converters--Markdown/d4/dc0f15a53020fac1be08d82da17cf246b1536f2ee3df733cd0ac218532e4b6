@@ -1,0 +1,94 @@
+I"�<h2 id="nội-dung">Nội dung</h2>
+
+<h3 id="1-anaconda-là-gì">1. Anaconda là gì?</h3>
+
+<p>Anaconda là một nền tảng phân phối miễn phí của ngôn ngữ lập trình Python và R cho tính toán khoa học (khoa học dữ liệu, machine learning, xử lý dữ liệu lớn, phân tích dự đoán, v.v.), nhằm mục đích đơn giản hóa việc quản lý và triển khai gói. Nó có trên cả Windows, MacOS và Linux.</p>
+
+<p><strong>Lợi ích của Anaconda:</strong></p>
+
+<ul>
+  <li>Dễ dàng tải 1500+ packages về Python/R cho data science</li>
+  <li>Quản lý thư viện, môi trường và dependency giữa các thư viện dễ dàng</li>
+  <li>Dễ dàng phát triển mô hình machine learning và deep learning với scikit-learn, tensorflow, keras</li>
+  <li>Xử lý dữ liệu tốc độ cao với numpy, pandas</li>
+  <li>Hiện thị kết quả với Matplotlib, Bokeh
+    <h3 id="2-hướng-dẫn-cài-đặt-anaconda">2. Hướng dẫn cài đặt Anaconda</h3>
+  </li>
+</ul>
+
+<p>Bạn vào <a href="https://www.anaconda.com/">trang chủ Anaconda</a> hoặc click vào link <a href="https://repo.anaconda.com/archive/Anaconda3-2022.05-Windows-x86_64.exe">này</a> để download. Sau đó mở file <em>Anaconda.exe</em> và chạy:</p>
+
+<p><img src="/assets/anaconda/anh_1.png" alt="" /></p>
+
+<p>Chọn ‘Next’ hoặc ấn Enter</p>
+
+<p><img src="/assets/anaconda/anh_2.png" alt="" /></p>
+
+<p>Chọn ‘I Agree’ hoặc ấn Enter</p>
+
+<p><img src="/assets/anaconda/anh_3.png" alt="" /></p>
+
+<p>Chọn Just Me hoặc All Users (nếu bạn muốn sử dụng cho tất cả các user trên máy) (ở đây tôi chọn Just Me)</p>
+
+<p><img src="/assets/anaconda/anh_4.png" alt="" /></p>
+
+<p>Chọn vị trí cài đặt Anaconda tùy chọn hoặc giữ nguyên và nhấn Next</p>
+
+<p><img src="/assets/anaconda/anh_5.png" alt="" /></p>
+
+<p>Chọn <strong>Add Anaconda 3 to my Path environment variable</strong> nếu bạn muốn sử dụng Anaconda trên các command prompt (git bash, cmder, powershell,…) nhưng sẽ <em>có thể</em> ảnh hưởng đến các ứng dụng khác của bạn. Nếu chỉ cần sử dụng Anaconda Navigator hoặc Anaconda Command Prompt thì không chọn (ở đây tôi không chọn). Sau đó click vào ‘Install’ hoặc ấn Enter</p>
+
+<p><img src="/assets/anaconda/anh_5.png" alt="" /></p>
+
+<p>Đợi 2-3p cho nó cài đặt sau đó click ‘Next’ hoặc ấn Enter</p>
+
+<p><img src="/assets/anaconda/anh_7.png" alt="" /></p>
+
+<p>Click Finish và hoàn thành!</p>
+<h3 id="3-hướng-dẫn-cài-đặt-và-sử-dụng-jupyter-notebook">3. Hướng dẫn cài đặt và sử dụng Jupyter Notebook</h3>
+
+<h4 id="cài-đặt-jupyter-notebook">Cài đặt Jupyter Notebook</h4>
+
+<p>Bạn có thể cài Jupyter trên Anaconda Navigator hoặc dùng lệnh sau trên command prompt nếu muốn sử dụng ở nhiều thư mục khác nhau:</p>
+
+<pre><code class="language-cmd">pip install jupyter notebook
+</code></pre>
+<h4 id="hướng-dẫn-sử-dụng-jupyter-notebook">Hướng dẫn sử dụng Jupyter Notebook</h4>
+
+<p>Nếu sử dụng Anaconda Navigator thì bạn mở ứng dụng và chọn Launch để chạy Jupyter Notebook.</p>
+
+<p><img src="/assets/anaconda/anh_8.png" alt="" /></p>
+
+<p>Nếu sử dụng lệnh <code class="language-plaintext highlighter-rouge">pip</code> thì bạn chọn thư mục cần mở Jupyter sau đó mở cmd và chạy lệnh sau:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter notebook
+</code></pre></div></div>
+<p><img src="/assets/anaconda/anh_9.png" alt="" /></p>
+
+<p>Giao diện khi mở jupyter notebook:</p>
+
+<p><img src="/assets/anaconda/anh_10.png" alt="" /></p>
+
+<p>Click vào new chọn Python3 để tạo 1 notebook mới</p>
+
+<p><img src="/assets/anaconda/anh_11.png" alt="" /></p>
+
+<p>Chọn Untitled để đổi lại tên khác</p>
+
+<p><img src="/assets/anaconda/anh_12.png" alt="" /></p>
+
+<p>Bạn có thể code trên các cell riêng biệt hoặc chọn Markdown để viết markdown cho code</p>
+
+<p><img src="/assets/anaconda/anh_13.png" alt="" /></p>
+
+<h3 id="4-tổng-kết">4. Tổng kết</h3>
+
+<p>Trên đây là toàn bộ hướng dẫn sử dụng và cài đặt Anaconda &amp; Jupyter notebook trên Windows. Nếu có thắc mắc hay góp ý gì bạn vui lòng để lại bình luận hoặc nhắn tin cho tôi tại <a href="https://www.facebook.com/suzii.bad/"> đây </a></p>
+
+<h3 id="nguồn-tham-khảo">Nguồn tham khảo:</h3>
+<ul>
+  <li><a href="https://www.datacamp.com/tutorial/installing-anaconda-windows">Installing Anaconda on Windows Tutorial - Data camp</a></li>
+  <li><a href="https://docs.anaconda.com/anaconda/install/"> Anaconda document installation - anacoda docs</a></li>
+  <li><a href="https://nttuan8.com/huong-dan-cai-dat-anaconda/"> Hướng dẫn cài đặt anaconda - nttuan</a></li>
+</ul>
+:ET
