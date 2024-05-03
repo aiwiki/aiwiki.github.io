@@ -1,4 +1,4 @@
-I"�Q<h2 id="nội-dung">Nội dung</h2>
+I"�R<h2 id="nội-dung">Nội dung</h2>
 <ul>
   <li><a href="#-dinh-nghia">1. Định nghĩa Markov chain</a></li>
   <li><a href="#-bai-toan-sang-nay-an-gi">2. Bài toán “sáng nay ăn gì”</a></li>
@@ -43,16 +43,16 @@
 
 <p>Trước tiên ta sẽ phải import các thư viện cần thiết vào Python</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># tính toán trên ma trận
-</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># đọc dữ liệu từ file csv
-</span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># dùng cho mục đích in "đẹp"
-</span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span> <span class="c1"># để đếm số lượng lần xảy ra của các trạng thái (đơn lẻ và cặp)
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># tính toán trên ma trận
+</span><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># đọc dữ liệu từ file csv
+</span><span class="kn">from</span> <span class="n">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># dùng cho mục đích in "đẹp"
+</span><span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span> <span class="c1"># để đếm số lượng lần xảy ra của các trạng thái (đơn lẻ và cặp)
 </span></code></pre></div></div>
 
 <p>Đọc dữ liệu và chuyển thành dạng list trong Python để dễ dàng sử dụng</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'breakfast.csv'</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">Food</span><span class="p">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">'</span><span class="s">breakfast.csv</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">Food</span><span class="p">.</span><span class="nf">tolist</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># xuất ra 5 món ăn cuối cùng bạn ăn
 </span></code></pre></div></div>
 <pre><code class="language-plain">['Phở', 'Cơm tấm', 'Bánh mì', 'Phở', 'Phở']
@@ -60,15 +60,15 @@
 
 <p>Để có thể tạo ma trận P, trước tiên ta phải đếm các cặp và các giá trị đơn lẻ trước, sau đó đi chuẩn hóa</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># tạo nơi lưu trữ giá trị
-</span><span class="n">food_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">food_pair_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+</span><span class="n">food_count</span> <span class="o">=</span> <span class="nf">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">food_pair_count</span> <span class="o">=</span> <span class="nf">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nf">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Đếm các giá trị</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># food_count: đếm số lần xuất hiện của một trạng thái
 # food_pair_count: đếm tất cả các cặp trạng thái có thể [current][future]
-</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span><span class="n">n</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">food_count</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
         <span class="c1"># self loop
@@ -79,31 +79,31 @@
 
 <p>Chuẩn hóa theo tổng hàng</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># chuẩn hóa theo tổng hàng
-</span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">food_pair_count</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+</span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">food_pair_count</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
         <span class="n">food_pair_count</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">/=</span> <span class="n">food_count</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="c1"># chuẩn hóa
 </span></code></pre></div></div>
 
 <p>Do ma trận không giống như dictionary trong Python, ta chỉ có thể truy cập được bằng chỉ mục (index) của trạng thái, vì vậy ta cần phải có một dictionary lưu trữ các index của các trạng thái</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># lấy index của các món ăn để dễ thao tác
-</span><span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">food_count</span><span class="p">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span>
-<span class="n">key_to_idx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span> <span class="c1"># key to index
-</span><span class="k">print</span><span class="p">(</span><span class="n">key_to_idx</span><span class="p">)</span>
+</span><span class="n">keys</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">food_count</span><span class="p">.</span><span class="nf">keys</span><span class="p">())</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span>
+<span class="n">key_to_idx</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">(</span><span class="nf">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span> <span class="c1"># key to index
+</span><span class="nf">print</span><span class="p">(</span><span class="n">key_to_idx</span><span class="p">)</span>
 </code></pre></div></div>
 <pre><code class="language-plain">{'Bánh mì': 0, 'Cơm tấm': 1, 'Phở': 2, 'Súp cua': 3}
 </code></pre>
 
 <p>Ta bây giờ có thể tạo ma trận $P$ từ xác suất đã chuẩn hóa từ bước trên, và nên chuyển từ list sang numpy để tiện lợi cho việc tính toán hơn, do numpy là một thư viện rất mạnh của Python trong việc xử lý các thao tác liên quan đến đại số tuyến tính.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">P</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">food_pair_count</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">P</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">food_pair_count</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+    <span class="n">P</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="nf">values</span><span class="p">()))</span>
         
 <span class="c1"># chuyển list sang numpy để dễ tính toán
-</span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">'Ma trận chuyển trạng thái P: '</span><span class="p">)</span>
-<span class="n">pprint</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Ma trận chuyển trạng thái P: </span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">pprint</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
 </code></pre></div></div>
 <pre><code class="language-plain">Ma trận chuyển trạng thái P: 
 array([[0.26582278, 0.26582278, 0.26582278, 0.20253165],
@@ -114,7 +114,7 @@ array([[0.26582278, 0.26582278, 0.26582278, 0.20253165],
 
 <p>Ta có thể kiểm tra tổng hàng xem có bằng $1$ hay chưa, nếu chưa có thể do lỗi ở các bước trước.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># tổng hàng của ma trận phải luôn bằng 1
-</span><span class="k">print</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</span><span class="nf">print</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div></div>
 <pre><code class="language-plain">[1. 1. 1. 1.] # tất cả đều 1, chuẩn 
 </code></pre>
@@ -123,14 +123,14 @@ array([[0.26582278, 0.26582278, 0.26582278, 0.20253165],
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># dự đoán món ăn 
 </span><span class="n">curr_food</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">curr_distribution</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">key_to_idx</span><span class="p">[</span><span class="n">curr_food</span><span class="p">]]</span>
-<span class="n">predicted_food</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">curr_distribution</span><span class="p">)</span> <span class="c1"># random walk with known distribution
+<span class="n">predicted_food</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">choice</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">curr_distribution</span><span class="p">)</span> <span class="c1"># random walk with known distribution
 </span><span class="n">predicted_probability</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="n">key_to_idx</span><span class="p">[</span><span class="n">curr_food</span><span class="p">]][</span><span class="n">key_to_idx</span><span class="p">[</span><span class="n">predicted_food</span><span class="p">]]</span>
 </code></pre></div></div>
 
 <p>In ra kết quả dự đoán</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Món ăn chúng ta ăn hôm trước: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'Món ăn nên ăn vào hôm nay là "</span><span class="si">{</span><span class="n">predicted_food</span><span class="si">}</span><span class="s">"</span><span class="se">\
-</span><span class="s"> với khả năng xảy ra là </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">predicted_probability</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s">%'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">Món ăn chúng ta ăn hôm trước: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">Món ăn nên ăn vào hôm nay là </span><span class="sh">"</span><span class="si">{</span><span class="n">predicted_food</span><span class="si">}</span><span class="sh">"</span><span class="se">\
+</span><span class="s"> với khả năng xảy ra là </span><span class="si">{</span><span class="nf">round</span><span class="p">(</span><span class="n">predicted_probability</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s">%</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 <pre><code class="language-plain">Món ăn chúng ta ăn hôm trước: Phở
 Món ăn nên ăn vào hôm nay là "Bánh mì" với khả năng xảy ra là 28.57%
