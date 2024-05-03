@@ -6,3 +6,35 @@ author: Bagumeow
 tags: [machinelearning, bagumeow]
 description: "Câu hỏi trên tiêu đề chắc đủ khiến tò mò phải không nào? Hãy cùng tìm hiểu xem Machine Learning là gì nhé!"
 ---
+
+
+## F1_SCORE
+Đối với một bài classification chắc các bạn sẽ biết một thang đo có tên là F1_score. Bài viết hôm nay mình sẽ giải thích và giới thiệu về thang đo này(đi từ rễ tới ngọn luôn :3), bài viết hơi dài không đọc thì thôi.
+
+Đầu tiên ta biết đến công thức của **F1_score** là  **F1_score**  = $\dfrac{2*Precision *Recall}{Precision + Recall}$
+
+$Precision  = \dfrac{TP}{TP+FP}$, có nghĩa là tỉ lệ nhãn dự đoán là **đúng** trên **tổng số nhãn đúng thật**
+
+$Recall = \dfrac{TP}{TP + FN}$, có nghĩa là tỉ lệ nhãn dự đoán **đúng** trên **tổng số nhãn** được **dự đoán** **là đúng.**
+
+Để hiểu TP, FN, FP là gì các bạn có thể tìm hiểu và đọc thêm về confusion matrix nhé 😊
+
+ Có thể bạn đã biết thì có 3 loại tính giá trị trung bình là trung bình cộng(tổng lại rồi chia ra), trung bình nhân(lấy căn) và trung bình điều hòa, công thức trên chính là trung bình điều hòa của Precision và Recall. 
+
+Vấn đề 1 : Vậy tại sao ta không tính bằng trung bình cộng hay trung bình nhân mà lại tính bằng trung bình điều hòa? Chính là vì nếu một trong 2 giá trị vượt trội hơn giá trị còn lại(ví dụ Recall = 1 luôn chẳng hạn), thì kết quả sẽ bị phụ thuộc và ảnh hưởng vào bên có giá trị cao hơn. Còn đối với trung bình điều hòa, thực chất là một dạng trung bình cộng có hệ số(xem chi tiết công thức ở comment). Chính vì vậy ta có thể đặt thêm trọng số(cân bằng sự quan trọng ) cho các thành phần.
+
+Vậy nếu khai triển theo công thức trung bình điều hòa, thì ta sẽ được :
+
+$\dfrac{2}{\dfrac{1}{Precision} + \dfrac{1}{Recall}}$ = $\dfrac{2PrecisionRecall}{Precision +Recall}$
+
+Vấn đề 2: Thế còn đối với dữ liệu mất cân bằng thì sao?
+
+Đối với dữ liệu bị mất cân bằng, ta có thể thêm tham số $\beta$ vào công thức, từ đây ta sẽ có công thức như sau:
+
+$F_{\beta} = \dfrac{(1+\beta^2)(Precision * Recall)}{\beta^2 Recall + Precision}$,
+
+Với $\beta = 1$, ta được công thức F1_score truyền thống
+
+Với $\beta > 1$, có nghĩa là ta đang đặt trọng số  cho Recall nhiều hơn và ngược lại, là đặt trọng số cho Precision nhiều hơn . Tùy thuộc vào bài toán mà chúng ta có thể điều chỉnh cho phù hợp.
+
+Các bạn có thể tìm hiểu thêm ở paper: “****Learning from Imbalanced Data” của He et al.****
