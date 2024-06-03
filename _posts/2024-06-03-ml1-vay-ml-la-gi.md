@@ -98,7 +98,7 @@ Giống như con người ta lúc nhỏ vậy. Nếu như ta được cha mẹ c
 <br>
 Thuật toán Supervised Learning còn chia ra thêm hai dạng nhỏ hơn là Classification và Regression.
 
- ##### 2.1.1 Classification (Phân loại) 
+##### 2.1.1 Classification (Phân loại) 
 
   Bài toán phân loại là nếu các nhãn của tập data được chia thành một số hữu hạn đếm được (số nguyên).
   Ví dụ: Cho một ảnh chó hoặc mèo, ta sẽ dự đoán đó là ảnh chó hay mèo; Phân loại cảm xúc bình luận rằng bình luận đó là <span style="color:green;">tích cực</span>, <span style="color:yellow;">trung lập</span> hay <span style="color:red;">tiêu cực</span>.
