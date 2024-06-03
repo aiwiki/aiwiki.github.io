@@ -11,7 +11,7 @@ description: "Câu hỏi trên tiêu đề chắc đủ khiến tò mò phải k
 
 > Chào mừng các bạn đã đến với khóa Machine Learning đầu tiên của của AI Club 😍
 
-# I. Giới thiệu
+## I. Giới thiệu
 
 Thời điểm tôi viết những dòng này, các bạn có lẽ đã nghe đến chatGPT, trợ lý Siri của Apple…
  và chắc mình không cần giải thích khả năng ưu việt của nó nữa. Sự xuất hiện của những thứ trên 
@@ -40,9 +40,9 @@ Nếu cho rằng **Big data** như là một “_cách mạng công nghiệp c�
 
 Vì sự lớn mạnh của dữ liệu. Ta cần một thứ để tận dụng sức mạnh của nó. Đó là **Machine Learning.**
 
-# II. Vậy Machine Learning là gì?
+## II. Vậy Machine Learning là gì?
 
-## 1. Khái niệm cơ bản
+### 1. Khái niệm cơ bản
 
 Như đã đề cập ở trên cũng như nhìn về tên của của nó thì Machine Learning chính
 là ta sẽ cho máy của mình “học”, “học” ở đây nghĩa là ta sẽ đưa cho máy một tập dữ liệu,
@@ -72,9 +72,9 @@ Và tùy dạng toán Machine Learning sẽ có những cách “học” khác 
 
 Thông thường trong quá trình huấn luyện sẽ có những thang đo để đánh giá. (Mình sẽ trình bày ở các bài sau).
 
-## 2. Các phương thức học máy (dạng toán)
+### 2. Các phương thức học máy (dạng toán)
 
-### 2.1 Supervised Learning (Học có giám sát)
+#### 2.1 Supervised Learning (Học có giám sát)
 
 Đây là thuật toán phổ biến nhất trong Machine Learning với đặc điểm là với mỗi điểm dữ liệu trong tập dữ liệu, ta sẽ có label(nhãn) tương ứng (<span style="color:blue;">data</span>, <span style="color:green;">label</span>) - ($\color{blue}{X}$,$\color{green}{y}$). Khi đưa dữ liệu này vào thuật toán Suppervised Learning $\color{orange}{f_{\theta}(.)}$ ta sẽ nhận được <span style="color:pink;">giá trị dự đoán</span> $\color{pink}{\hat{y}}$. Với mục tiêu rằng $\color{green}{y}$ $\approx$ $\color{pink}{\hat{y}}$
 
@@ -98,7 +98,7 @@ Giống như con người ta lúc nhỏ vậy. Nếu như ta được cha mẹ c
 <br>
 Thuật toán Supervised Learning còn chia ra thêm hai dạng nhỏ hơn là Classification và Regression.
 
-- **2.1.1 Classification (Phân loại)**
+ ##### 2.1.1 Classification (Phân loại) 
 
   Bài toán phân loại là nếu các nhãn của tập data được chia thành một số hữu hạn đếm được (số nguyên).
   Ví dụ: Cho một ảnh chó hoặc mèo, ta sẽ dự đoán đó là ảnh chó hay mèo; Phân loại cảm xúc bình luận rằng bình luận đó là <span style="color:green;">tích cực</span>, <span style="color:yellow;">trung lập</span> hay <span style="color:red;">tiêu cực</span>.
@@ -107,14 +107,14 @@ Thuật toán Supervised Learning còn chia ra thêm hai dạng nhỏ hơn là C
         <figcaption><i>Hình 7. Phân loại cảm xúc bình luận</i></figcaption>
     </figure>
 
-- **2.1.2 Regression (Hồi quy)**
+##### 2.1.2 Regression (Hồi quy)
 
   Bài toán hồi quy thì khác các nhãn của tập dữ liệu này là một số thực vô hạn không đếm được.
   Ví dụ: Dự đoán giá nhà; chiều cao; cân nặng; giá cổ phiếu.
 
 Nếu bạn có một bài tập rằng: cần phải dự đoán giới tính và chiều cao. Thì phần dự đoán giới tính sẽ là thuật toán **Classification**. Dự đoán chiều cao sẽ là **Regression.**
 
-### 2.2 Unsupervised Learning (Học không giám sát)
+#### 2.2 Unsupervised Learning (Học không giám sát)
 
 Điểm đặc biệt của các bài toán Unsupervised Learning đó là dữ liệu của chúng ta sẽ không có nhãn. Tức là chỉ có $X$ chứ không có $y$.
 
@@ -131,29 +131,29 @@ Vì không có nhãn để trực tiếp dạy cho mô hình nên mô hình sẽ
 <br>
 Như Supervised thì  Unsupervised  cũng chia thành 2 loại như:
 
-- 2.2.1 Clustering (Phân cụm)
+##### 2.2.1 Clustering (Phân cụm)
 
   Trích từ trang [machinelearningcoban.com](http://machinelearningcoban.com/):
   "_Một bài toán phân cụm toàn bộ dữ liệu $\mathcal{X}$ thành các nhóm nhỏ dựa trên sự liên quan giữa các dữ liệu trong mỗi nhóm_
   _Ví dụ: đưa cho một đứa trẻ rất nhiều mảnh ghép với các hình thù và màu sắc khác nhau, ví dụ tam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻ phân chúng thành từng nhóm. Mặc dù không cho trẻ biết mảnh nào tương ứng với hình nào hoặc màu nào, nhiều khả năng chúng vẫn có thể phân loại các mảnh ghép theo màu hoặc hình dạng._”
-- 2.2.2 Association
+##### 2.2.2 Association
 
   Là bài toán khi ta muốn tìm ra được một quy luật từ nhiều dữ liệu cho trước.
   Tiêu biểu nhất trong thuật toán này là bài toán Recommendation System (RecSys). Giả sử có hai người A, B có sở thích giống nhau. Hệ thống sẽ gợi ý sản phẩm mà người A thích cho người B.
   Bài toán giảm chiều dữ liệu thì sẽ sử lại các thông tin quan trọng nhất và bỏ bớt thông tin ít quan trọng hơn dựa vào một ngưỡng (threshold) nào đó.
 
-### 2.3 Semi-Supervised Learning (Học bán giám sát)
+#### 2.3 Semi-Supervised Learning (Học bán giám sát)
 
 Đây là bài toán kết hợp hai dạng trên khi mà tập dữ liệu của chúng ta chỉ có một phần là được gán nhãn.
 
 Ví dụ thường gặp nằm ở các bài toán thu thập dữ liệu. Data lớn nhưng chưa có người gán nhán.
 
-### 2.4 Reinforcement Learning (Học tăng cường)
+#### 2.4 Reinforcement Learning (Học tăng cường)
 
 Đây là một cách học rất hay nhưng cũng khá khó bởi vì thay vì tối ưu như thông thường. Ta sẽ có thêm một hàm lợi ích. Mục đích của mô hình là đạt được lợi ích cao nhất. Quá trình hành động của mô hình được thiết lập ngẫu nhiên và ta cần có một hàm thưởng phạt để giúp mô hình học đúng với mục đích hơn.
 
 Đây là một trong những kĩ thuật quan trọng trong Deep Learning nhưng sẽ không được đề cập ở khóa này (Maybe khóa deeplearning nha 😁).
 
-# III. Tài liệu tham khảo
+## III. Tài liệu tham khảo
 
 1. [https://machinelearningcoban.com/](https://machinelearningcoban.com/)
