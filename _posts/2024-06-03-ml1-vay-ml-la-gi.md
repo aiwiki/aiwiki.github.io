@@ -3,6 +3,7 @@ layout: post
 title: "ML 1: Vậy Machine Learning là gì?"
 categories: [Machine Learning]
 author: Bagumeow
+usemathjax: true
 tags:
   [bagumeow, machinelearning, supervised, unsupervised, reinforcement learning]
 description: "Câu hỏi trên tiêu đề chắc đủ khiến tò mò phải không nào? Hãy cùng tìm hiểu xem Machine Learning là gì nhé!"
@@ -131,10 +132,12 @@ Vì không có nhãn để trực tiếp dạy cho mô hình nên mô hình sẽ
 Như Supervised thì  Unsupervised  cũng chia thành 2 loại như:
 
 - 2.2.1 Clustering (Phân cụm)
+
   Trích từ trang [machinelearningcoban.com](http://machinelearningcoban.com/):
   "_Một bài toán phân cụm toàn bộ dữ liệu $\mathcal{X}$ thành các nhóm nhỏ dựa trên sự liên quan giữa các dữ liệu trong mỗi nhóm_
   _Ví dụ: đưa cho một đứa trẻ rất nhiều mảnh ghép với các hình thù và màu sắc khác nhau, ví dụ tam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻ phân chúng thành từng nhóm. Mặc dù không cho trẻ biết mảnh nào tương ứng với hình nào hoặc màu nào, nhiều khả năng chúng vẫn có thể phân loại các mảnh ghép theo màu hoặc hình dạng._”
 - 2.2.2 Association
+
   Là bài toán khi ta muốn tìm ra được một quy luật từ nhiều dữ liệu cho trước.
   Tiêu biểu nhất trong thuật toán này là bài toán Recommendation System (RecSys). Giả sử có hai người A, B có sở thích giống nhau. Hệ thống sẽ gợi ý sản phẩm mà người A thích cho người B.
   Bài toán giảm chiều dữ liệu thì sẽ sử lại các thông tin quan trọng nhất và bỏ bớt thông tin ít quan trọng hơn dựa vào một ngưỡng (threshold) nào đó.
