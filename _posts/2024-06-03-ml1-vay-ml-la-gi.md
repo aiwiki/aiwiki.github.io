@@ -29,8 +29,8 @@ Nếu cho rằng **Big data** như là một “_cách mạng công nghiệp c�
  thì không sai bởi nhu cầu chia sẻ thông tin của con người ngày nay trên internet thực
   sự rất lớn, bạn có thể xem những fact và ảnh bên dưới:
 
-- Cứ mỗi 1 phút thì khoảng 500 giờ video được lên youtube ([YouTube: hours of video uploaded every minute 2022 | Statista](https://www.statista.com/statistics/259477/hours-of-video-uploaded-to-youtube-every-minute/))
-- 3.5 tỷ lần search trên google mỗi ngày ([Google Search Statistics - Internet Live Stats](https://www.internetlivestats.com/google-search-statistics/#:~:text=Google%20now%20processes%20over%2040%2C000%20search%20queries%20every,day%20and%201.2%20trillion%20searches%20per%20year%20worldwide.))
+- Cứ mỗi 1 phút thì khoảng 500 giờ video được lên youtube [YouTube: hours of video uploaded every minute 2022 | Statista](https://www.statista.com/statistics/259477/hours-of-video-uploaded-to-youtube-every-minute/)
+- 3.5 tỷ lần search trên google mỗi ngày [Google Search Statistics - Internet Live Stats](https://www.internetlivestats.com/google-search-statistics/#:~:text=Google%20now%20processes%20over%2040%2C000%20search%20queries%20every,day%20and%201.2%20trillion%20searches%20per%20year%20worldwide.)
 
 <figure style="text-align: center;">
   <img src="../assets/ml_1/bigdata.png" width="500" alt="Description of the image">
