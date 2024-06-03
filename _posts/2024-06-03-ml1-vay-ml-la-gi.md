@@ -104,7 +104,7 @@ Thuật toán Supervised Learning còn chia ra thêm hai dạng nhỏ hơn là C
   Ví dụ: Cho một ảnh chó hoặc mèo, ta sẽ dự đoán đó là ảnh chó hay mèo; Phân loại cảm xúc bình luận rằng bình luận đó là <span style="color:green;">tích cực</span>, <span style="color:yellow;">trung lập</span> hay <span style="color:red;">tiêu cực</span>.
     <figure style="text-align: center;">
         <img src="../assets/ml_1/ex_3.png" width="500" alt="Description of the image">`
-        <figcaption><i>Hình 7. Phân loại cảm x`úc bình luận</i></figcaption>
+        <figcaption><i>Hình 7. Phân loại cảm xúc bình luận</i></figcaption>
     </figure>
 
 - **2.1.2 Regression (Hồi quy)**
