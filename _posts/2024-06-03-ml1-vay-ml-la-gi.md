@@ -140,7 +140,7 @@ _Ví dụ: đưa cho một đứa trẻ rất nhiều mảnh ghép với các h�
 
 Là bài toán khi ta muốn tìm ra được một quy luật từ nhiều dữ liệu cho trước.
 Tiêu biểu nhất trong thuật toán này là bài toán Recommendation System (RecSys). Giả sử có hai người A, B có sở thích giống nhau. Hệ thống sẽ gợi ý sản phẩm mà người A thích cho người B.
-Bài toán giảm chiều dữ liệu thì sẽ sử lại các thông tin quan trọng nhất và bỏ bớt thông tin ít quan trọng hơn dựa vào một ngưỡng (threshold) nào đó.
+Bài toán giảm chiều dữ liệu thì sẽ giữ lại các thông tin quan trọng nhất trong dữ liệu và bỏ bớt thông tin ít quan trọng hơn dựa vào một ngưỡng (threshold) nào đó.
 
 #### 2.3 Semi-Supervised Learning (Học bán giám sát)
 
