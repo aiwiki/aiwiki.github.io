@@ -120,7 +120,7 @@ Nếu bạn có một bài tập rằng: cần phải dự đoán giới tính v
 
 Vì không có nhãn để trực tiếp dạy cho mô hình nên mô hình sẽ dựa vào cấu trúc của dữ liệu để thực hiện một việc nào đó như là phân cụm, giảm chiều dữ liệu, phân rã dữ liệu để lưu trữ, tìm mối tương quan giữa các dữ liệu…
 
-Để tương ứng với ví dụ ở trên thì lần này mình sẽ lấy ví dụ rằng: Một đứa trẻ khi được đưa một đống đồ chơi, nó sẽ tự đống biết phải làm gì với nó, có thể xếp chồng lên nhau, chọn những món đồ giống nhau, thậm chỉ là có thể phá vỡ đồ chơi đó nữa 💀.
+Để tương ứng với ví dụ ở trên thì lần này mình sẽ lấy ví dụ rằng: Một đứa trẻ khi được đưa một đống đồ chơi, nó sẽ tự động biết phải làm gì với đống đó, có thể xếp chồng lên nhau, chọn những món đồ giống nhau, thậm chỉ là có thể phá vỡ đồ chơi đó nữa 💀.
 
 <div style="text-align: center;">
     <img src="../assets/ml_1/ex_4.png" alt="Ảnh được sinh bởi Bing Image Creator 😁" width="300" style="display: inline-block;">
