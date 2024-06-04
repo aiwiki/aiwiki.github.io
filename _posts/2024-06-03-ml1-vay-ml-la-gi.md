@@ -100,17 +100,17 @@ Thuật toán Supervised Learning còn chia ra thêm hai dạng nhỏ hơn là C
 
 ##### 2.1.1 Classification (Phân loại) 
 
-  Bài toán phân loại là nếu các nhãn của tập data được chia thành một số hữu hạn đếm được (số nguyên).
-  Ví dụ: Cho một ảnh chó hoặc mèo, ta sẽ dự đoán đó là ảnh chó hay mèo; Phân loại cảm xúc bình luận rằng bình luận đó là <span style="color:green;">tích cực</span>, <span style="color:yellow;">trung lập</span> hay <span style="color:red;">tiêu cực</span>.
-    <figure style="text-align: center;">
-        <img src="../assets/ml_1/ex_3.png" width="500" alt="Description of the image">
-        <figcaption><i>Hình 7. Phân loại cảm xúc bình luận</i></figcaption>
-    </figure>
+Bài toán phân loại là nếu các nhãn của tập data được chia thành một số hữu hạn đếm được (số nguyên).
+Ví dụ: Cho một ảnh chó hoặc mèo, ta sẽ dự đoán đó là ảnh chó hay mèo; Phân loại cảm xúc bình luận rằng bình luận đó là <span style="color:green;">tích cực</span>, <span style="color:yellow;">trung lập</span> hay <span style="color:red;">tiêu cực</span>.
+<figure style="text-align: center;">
+    <img src="../assets/ml_1/ex_3.png" width="500" alt="Description of the image">
+    <figcaption>Hình 7. Phân loại cảm xúc bình luận</figcaption>
+</figure>
 
 ##### 2.1.2 Regression (Hồi quy)
 
-  Bài toán hồi quy thì khác các nhãn của tập dữ liệu này là một số thực vô hạn không đếm được.
-  Ví dụ: Dự đoán giá nhà; chiều cao; cân nặng; giá cổ phiếu.
+Bài toán hồi quy thì khác các nhãn của tập dữ liệu này là một số thực vô hạn không đếm được.
+Ví dụ: Dự đoán giá nhà; chiều cao; cân nặng; giá cổ phiếu.
 
 Nếu bạn có một bài tập rằng: cần phải dự đoán giới tính và chiều cao. Thì phần dự đoán giới tính sẽ là thuật toán **Classification**. Dự đoán chiều cao sẽ là **Regression.**
 
@@ -133,14 +133,14 @@ Như Supervised thì  Unsupervised  cũng chia thành 2 loại như:
 
 ##### 2.2.1 Clustering (Phân cụm)
 
-  Trích từ trang [machinelearningcoban.com](http://machinelearningcoban.com/):
-  "_Một bài toán phân cụm toàn bộ dữ liệu $\mathcal{X}$ thành các nhóm nhỏ dựa trên sự liên quan giữa các dữ liệu trong mỗi nhóm_
-  _Ví dụ: đưa cho một đứa trẻ rất nhiều mảnh ghép với các hình thù và màu sắc khác nhau, ví dụ tam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻ phân chúng thành từng nhóm. Mặc dù không cho trẻ biết mảnh nào tương ứng với hình nào hoặc màu nào, nhiều khả năng chúng vẫn có thể phân loại các mảnh ghép theo màu hoặc hình dạng._”
+Trích từ trang [machinelearningcoban.com](http://machinelearningcoban.com/):
+"_Một bài toán phân cụm toàn bộ dữ liệu $\mathcal{X}$ thành các nhóm nhỏ dựa trên sự liên quan giữa các dữ liệu trong mỗi nhóm_
+_Ví dụ: đưa cho một đứa trẻ rất nhiều mảnh ghép với các hình thù và màu sắc khác nhau, ví dụ tam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻ phân chúng thành từng nhóm. Mặc dù không cho trẻ biết mảnh nào tương ứng với hình nào hoặc màu nào, nhiều khả năng chúng vẫn có thể phân loại các mảnh ghép theo màu hoặc hình dạng._”
 ##### 2.2.2 Association
 
-  Là bài toán khi ta muốn tìm ra được một quy luật từ nhiều dữ liệu cho trước.
-  Tiêu biểu nhất trong thuật toán này là bài toán Recommendation System (RecSys). Giả sử có hai người A, B có sở thích giống nhau. Hệ thống sẽ gợi ý sản phẩm mà người A thích cho người B.
-  Bài toán giảm chiều dữ liệu thì sẽ sử lại các thông tin quan trọng nhất và bỏ bớt thông tin ít quan trọng hơn dựa vào một ngưỡng (threshold) nào đó.
+Là bài toán khi ta muốn tìm ra được một quy luật từ nhiều dữ liệu cho trước.
+Tiêu biểu nhất trong thuật toán này là bài toán Recommendation System (RecSys). Giả sử có hai người A, B có sở thích giống nhau. Hệ thống sẽ gợi ý sản phẩm mà người A thích cho người B.
+Bài toán giảm chiều dữ liệu thì sẽ sử lại các thông tin quan trọng nhất và bỏ bớt thông tin ít quan trọng hơn dựa vào một ngưỡng (threshold) nào đó.
 
 #### 2.3 Semi-Supervised Learning (Học bán giám sát)
 
