@@ -15,7 +15,7 @@ description: "Câu hỏi trên tiêu đề chắc đủ khiến tò mò phải k
 
 Thời điểm tôi viết những dòng này, các bạn có lẽ đã nghe đến chatGPT, trợ lý Siri của Apple…
  và chắc mình không cần giải thích khả năng ưu việt của nó nữa. Sự xuất hiện của những thứ trên 
- là nhờ vào (ML), một nhánh con của trí tuệ nhân tạo(AI). 
+ là nhờ vào Machine Learning (máy học), một nhánh con của trí tuệ nhân tạo(AI). 
  “_Machine Learning là quá trình mà máy tính học hỏi từ bộ dữ liệu mà không cần phải được lập trình rõ ràng_”
 [Học máy - machine learning: giải thích đơn giản dễ hiểu (itguru.vn)](https://itguru.vn/blog/machine-learning-hoc-may-don-gian-de-hieu/#:~:text=Machine%20Learning%20l%C3%A0%20m%E1%BB%99t%20l%C4%A9nh%20v%E1%BB%B1c%20con%20c%E1%BB%A7a,h%E1%BA%BFt%20c%C3%A1c%20ch%C6%B0%C6%A1ng%20tr%C3%ACnh%20AI%20%C4%91%C6%B0%E1%BB%A3c%20th%E1%BB%B1c%20hi%E1%BB%87n.).
 Từ khái niệm trên ta có thể suy ra được rằng dữ liệu là cơ sở chính và sự xuất hiện của **Big data** 
@@ -76,7 +76,7 @@ Thông thường trong quá trình huấn luyện sẽ có những thang đo đ�
 
 #### 2.1 Supervised Learning (Học có giám sát)
 
-Đây là thuật toán phổ biến nhất trong Machine Learning với đặc điểm là với mỗi điểm dữ liệu trong tập dữ liệu, ta sẽ có label(nhãn) tương ứng (<span style="color:blue;">data</span>, <span style="color:green;">label</span>) - ($\color{blue}{X}$,$\color{green}{y}$). Khi đưa dữ liệu này vào thuật toán Suppervised Learning $\color{orange}{f_{\theta}(.)}$ ta sẽ nhận được <span style="color:pink;">giá trị dự đoán</span> $\color{pink}{\hat{y}}$. Với mục tiêu rằng $\color{green}{y}$ $\approx$ $\color{pink}{\hat{y}}$
+Đây là thuật toán phổ biến nhất trong Machine Learning với đặc điểm là với mỗi điểm dữ liệu trong tập dữ liệu, ta sẽ có label(nhãn) tương ứng (<span style="color:cyan;">data</span>, <span style="color:green;">label</span>) - ($\color{cyan}{X}$,$\color{green}{y}$). Khi đưa dữ liệu này vào thuật toán Suppervised Learning $\color{orange}{f_{\theta}(.)}$ ta sẽ nhận được <span style="color:pink;">giá trị dự đoán</span> $\color{pink}{\hat{y}}$. Với mục tiêu rằng $\color{green}{y}$ $\approx$ $\color{pink}{\hat{y}}$
 
 <figure style="text-align: center;">
   <img src="../assets/ml_1/supervised1.png" width="600" alt="Description of the image">
@@ -84,7 +84,7 @@ Thông thường trong quá trình huấn luyện sẽ có những thang đo đ�
 </figure>
 
 $$
-y_i \approx f_{\theta}(x_i) = \hat{y}_i, ~~ \forall i = 1, 2, \dots, N
+\color{green}{y_i} \ \color{white}{\approx} \  \color{orange}{f_{\theta}(} \color{cyan}{x_i}\color{orange}{)} \ \color{white}{=} \  \color{pink}{\hat{y}_i} \color{white}, ~~ \forall i = 1, 2, \dots, N
 $$
 
 Giống như con người ta lúc nhỏ vậy. Nếu như ta được cha mẹ chỉ rằng “Đây là hình vuông” thì ta sẽ biết nó là hình vuông, “Đây là hình tam giác” thì đây sẽ là hình tam giác. Ở ví dụ này thì ta sẽ đóng vai bố mẹ, mô hình ML sẽ như là con của mình. Nhiệm vụ của ta là phải dạy cho con mình biết phân biệt các dạng hình học. (Nhưng con bạn có thể chưa học được ở lần đầu tiên nên bạn sẽ cần phải dạy cho nó nhiều lần nữa cơ 😆)
@@ -116,7 +116,7 @@ Nếu bạn có một bài tập rằng: cần phải dự đoán giới tính v
 
 #### 2.2 Unsupervised Learning (Học không giám sát)
 
-Điểm đặc biệt của các bài toán Unsupervised Learning đó là dữ liệu của chúng ta sẽ không có nhãn. Tức là chỉ có $X$ chứ không có $y$.
+Điểm đặc biệt của các bài toán Unsupervised Learning đó là dữ liệu của chúng ta sẽ không có nhãn. Tức là chỉ có $\color{cyan}X$ chứ không có $\color{green}y$.
 
 Vì không có nhãn để trực tiếp dạy cho mô hình nên mô hình sẽ dựa vào cấu trúc của dữ liệu để thực hiện một việc nào đó như là phân cụm, giảm chiều dữ liệu, phân rã dữ liệu để lưu trữ, tìm mối tương quan giữa các dữ liệu…
 
@@ -154,6 +154,8 @@ Ví dụ thường gặp nằm ở các bài toán thu thập dữ liệu. Data 
 
 Đây là một trong những kĩ thuật quan trọng trong Deep Learning nhưng sẽ không được đề cập ở khóa này (Maybe khóa deeplearning nha 😁).
 
-## III. Tài liệu tham khảo
+Ở Bài tiếp theo mình sẽ giới thiệu về một số thuật toán cơ bản trong Machine Learning.
 
+## III. Tài liệu tham khảo
+Vì biểu diễn toán học quá đầy đủ từ anh Vu Huu Tiep nên mọi người có thể tham khảo thêm ở dưới.
 1. [https://machinelearningcoban.com/](https://machinelearningcoban.com/)
