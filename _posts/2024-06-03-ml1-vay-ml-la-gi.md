@@ -84,7 +84,7 @@ Thông thường trong quá trình huấn luyện sẽ có những thang đo đ�
 </figure>
 
 $$
-\color{green}{y_i} \ \color{white}{\approx} \  \color{orange}{f_{\theta}(} \color{cyan}{x_i}\color{orange}{)} \ \color{white}{=} \  \color{pink}{\hat{y}_i} \color{white}, ~~ \forall i = 1, 2, \dots, N
+\color{green}{y_i}\  \color{None} {\approx} \  \color{orange}{f_{\theta}(} \color{cyan}{x_i}\color{orange}{)} \ \color{None}{=} \  \color{pink}{\hat{y}_i} \color{None}, ~~ \forall i = 1, 2, \dots, N
 $$
 
 Giống như con người ta lúc nhỏ vậy. Nếu như ta được cha mẹ chỉ rằng “Đây là hình vuông” thì ta sẽ biết nó là hình vuông, “Đây là hình tam giác” thì đây sẽ là hình tam giác. Ở ví dụ này thì ta sẽ đóng vai bố mẹ, mô hình ML sẽ như là con của mình. Nhiệm vụ của ta là phải dạy cho con mình biết phân biệt các dạng hình học. (Nhưng con bạn có thể chưa học được ở lần đầu tiên nên bạn sẽ cần phải dạy cho nó nhiều lần nữa cơ 😆)
