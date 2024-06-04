@@ -45,7 +45,7 @@ Vì sự lớn mạnh của dữ liệu. Ta cần một thứ để tận dụng
 ### 1. Khái niệm cơ bản
 
 Như đã đề cập ở trên cũng như nhìn về tên của của nó thì Machine Learning chính
-là ta sẽ cho máy của mình “học”, “học” ở đây nghĩa là ta sẽ đưa cho máy một tập dữ liệu,
+là ta sẽ cho máy(model) của mình “học”, “học” ở đây nghĩa là ta sẽ đưa cho máy một tập dữ liệu,
 máy sẽ trả cho ta một kết quả ta mong muốn. Theo khái niệm của toán-lập trình, ta có thể hiểu
 Machine Learning như là một hàm $f : x \rightarrow y$ hoặc $f(x) = y$, với hàm $\color{orange}{f(.)}$
 là thuật toán ML có thể biến <span style="color:red;">dữ liệu đầu vào:</span> $\color{red}{x}$ thành <span style="color:green;">đầu ra, mong muốn:</span> $\color{green}{y.}$
