@@ -75,17 +75,17 @@ trong đó $\{w_1,w_2,w_0\}$ là bộ tham số cần tối ưu. $w_0$  (có th�
 
 Bản chất của Linear Regression là ta sẽ đi tìm bộ tham số sao cho siêu phẳng xấp xỉ được giá trị của các điểm dữ liệu. Và bạn sẽ thấy được $\{w_1,\cdots, w_n\}$ sẽ biểu diễn cho độ dốc của siêu phẳng, và $w_0$  hay $\beta$ sẽ biểu diễn cho độ dốc.
 
-Quay lại với ví dụ ở trên, bây giờ ta sẽ đặt $\mathbf{w} = [w_0,w_1,w_2]^T$, $\color{teal}{\bar{\mathbf{x}} = [1,x_1,x_2] }$. Lúc này giá trị dự đoán $\color{pink}{\hat{y}}$ sẽ là một tổ hợp tuyến tính  từ $\color{teal}{\bar{\mathbf{x}}}$ và $\mathbf{w}$
+Quay lại với ví dụ ở trên, bây giờ ta sẽ đặt $\mathbf{w} = [w_0,w_1,w_2]^T$, $\color{teal}{\bar{\mathbf{x}} = [1,x_1,x_2] }$. Lúc này <span style="color:hotpink;">giá trị dự đoán</span> $\color{hotpink}{\hat{y}}$ sẽ là một tổ hợp tuyến tính  từ $\color{teal}{\bar{\mathbf{x}}}$ và $\mathbf{w}$
 
-$
+$$
 \color{Lime}{y} \ \color{None}{ \approx}  \ \color{teal}{\mathbf{\bar{x}}} \color{None}{\mathbf{w}} = \color{hotpink}{\hat{y}}
-$
+$$
 
 Và nếu bạn có thắc mắc rằng “Làm cách nào để biết bộ tham số nào là tốt?”.  Từ đây ta sẽ có khái niệm **Hàm mất mát.**
 
 ### 2.2. Hàm mất mát (loss function)
 
-Hầu như mọi thuật toán Machine Learning cần có một phương thức để có thể đánh giá mô hình đó có tốt hay không, đó sẽ gọi là hàm mất mát,  Mục đích chính của hàm mất mát là đo lường sự khác biệt giữa giá trị dự đoán của mô hình và giá trị thực tế mà mô hình cần phải dự đoán. Từ đó, hàm mất mát giúp tối ưu hóa và cải thiện hiệu suất của mô hình.
+Hầu như mọi thuật toán Machine Learning cần có một phương thức để có thể đánh giá mô hình đó có tốt hay không, đó sẽ gọi là hàm mất mát,  Mục đích chính của hàm mất mát là đo lường sự khác biệt giữa <span style="color:hotpink;">giá trị dự đoán</span> của mô hình và <span style="color:lime;">giá trị thực tế</span> mà mô hình cần phải dự đoán. Từ đó, hàm mất mát giúp tối ưu hóa và cải thiện hiệu suất của mô hình.
 
 Trong bài này mình sẽ giới thiệu cho mọi người hàm Mean Squared Error(MSE) với công thức như sau:
 
@@ -95,20 +95,21 @@ $$
 
 *“Số $\frac{1}{2}$ là hằng số không ảnh hưởng gì đến kết quả, mà sẽ giúp cho đạo hàm (phần sau) trở nên đẹp hơn”*
 
-Ta sẽ mong muốn rằng sự sai số giữa giá trị dự đoán và giá trị thực tế sẽ là nhỏ nhất. Đồng nghĩa với việc tìm hệ số $\mathbf{w}$ sao cho $\mathcal{L}(\mathbf{w})$ đạt giá trị nhỏ nhất. Và bộ tham số thỏa mãn điều kiện trên được gọi là nghiệm tối ưu của bài toán, ký hiệu là :
+Ta sẽ mong muốn rằng sự sai số giữa <span style="color:hotpink;">giá trị dự đoán</span> và <span style="color:lime;">giá trị thực tế</span> sẽ là nhỏ nhất. Đồng nghĩa với việc tìm hệ số $\mathbf{w}$ sao cho $\mathcal{L}(\mathbf{w})$ đạt giá trị nhỏ nhất. Và bộ tham số thỏa mãn điều kiện trên được gọi là nghiệm tối ưu của bài toán, ký hiệu là :
 
 $$
 \mathbf{w}^* = \arg\min_{\mathbf{w}} \mathcal{L}(\mathbf{w})
 $$
 
-Để quá trình giải nghiệm tối ưu dễ dàng hơn thì mình sẽ đặt $\color{Lime}{\mathbf{y} = [y_1; y_2; \dots; y_N]} \ \color{None}{\in \mathbb{R}^N }$ , là vector chứa toàn bộ giá trị thực tế trong bộ data, $\color{teal}{\mathbf{\bar{X}} = [\mathbf{\bar{x}}_1; \mathbf{\bar{x}}_2; \dots; \mathbf{\bar{x}}_N ]} \ \color{None}{\in \mathbb{R}^{d \times N}}$
+Để quá trình giải nghiệm tối ưu dễ dàng hơn thì mình sẽ đặt $\color{Lime}{\mathbf{y} = [y_1; y_2; \dots; y_N]} \ \color{None}{\in \mathbb{R}^N }$ , là vector chứa toàn bộ <span style="color:lime;">giá trị thực tế</span> trong bộ data, $\color{teal}{\mathbf{\bar{X}} = [\mathbf{\bar{x}}_1; \mathbf{\bar{x}}_2; \dots; \mathbf{\bar{x}}_N ]} \ \color{None}{\in \mathbb{R}^{d \times N}}$
  là ma trận của toàn bộ dữ liệu với $d$  là số chiều của dữ liệu và $N$ là số lượng điểm dữ liệu. Khi này hàm mất mát sẽ được viết dưới dạng ma trận tổng quát đơn giản hơn.
 
 $$
 \mathcal{L}(\mathbf{w})= \frac{1}{2} \| \color{Lime}{\mathbf{y}} \color{None}{-} \color{teal}{ \mathbf{\bar{X}}} \color{None}{\mathbf{w} \|_2^2} ~~~(3)
 $$
 
-Đây là công thức bình phương khoảng cách Euclid  (Chuẩn Euclid, Norm 2). Từ đây ta có thể nói rằng MSE sẽ so sánh vector giá trị thực tế và vector giá trị dự đoán với nhau. Ngoài ra Norm 2  có thể khai triển ra như sau:  $\color{Coral}{\|z\|_2 = \sqrt{z^Tz}}$ .
+Đây là công thức bình phương khoảng cách Euclid  (Chuẩn Euclid, Norm 2). Từ đây ta có thể nó
+i rằng MSE sẽ so sánh vector <span style="color:lime;">giá trị thực tế</span> và vector <span style="color:hotpink;">giá trị dự đoán</span> với nhau. Ngoài ra Norm 2  có thể khai triển ra như sau:  $\color{Coral}{\|z\|_2 = \sqrt{z^Tz}}$ .
 
 ### 2.3. Bổ sung về toán học
 
@@ -204,9 +205,11 @@ Với quan sát ấy, họ dựa vào khái niệm Gradient(có thể coi đây 
   <img src="../assets/ml_2/gradient.png" width="400" alt="Gradient Descent">
   <figcaption><i>Hình 6. Độ dốc của một hàm lõm </i></figcaption>
 </figure>
+ 
 
-Vậy công thức của Gradient Descent như sau : $\mathbf{w}_{t+1} = \mathbf{w}_t -\eta \nabla_{\mathbf{w}}f(\mathbf{w}_t)$
+Vậy công thức của Gradient Descent như sau : 
 
+![alt text](../assets/ml_2/gradient_fomula.png)
 
 Giải thích sơ qua thì dựa vào vị trí bộ tham số hiện tại thì bộ tham số tiếp theo sẽ tiến gần tới tới điểm tối ưu $\mathbf{w}^*$ với khoảng cách là $\eta$  lần giá trị đạo hàm ở thời điểm hiện tại.
 
