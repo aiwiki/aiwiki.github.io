@@ -77,9 +77,9 @@ Bản chất của Linear Regression là ta sẽ đi tìm bộ tham số sao cho
 
 Quay lại với ví dụ ở trên, bây giờ ta sẽ đặt $\mathbf{w} = [w_0,w_1,w_2]^T$, $\color{teal}{\bar{\mathbf{x}} = [1,x_1,x_2] }$. Lúc này giá trị dự đoán $\color{pink}{\hat{y}}$ sẽ là một tổ hợp tuyến tính  từ $\color{teal}{\bar{\mathbf{x}}}$ và $\mathbf{w}$
 
-$$
+$
 \color{Lime}{y} \ \color{None}{ \approx}  \ \color{teal}{\mathbf{\bar{x}}} \color{None}{\mathbf{w}} = \color{hotpink}{\hat{y}}
-$$
+$
 
 Và nếu bạn có thắc mắc rằng “Làm cách nào để biết bộ tham số nào là tốt?”.  Từ đây ta sẽ có khái niệm **Hàm mất mát.**
 
