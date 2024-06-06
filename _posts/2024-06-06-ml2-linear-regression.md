@@ -178,7 +178,7 @@ Và áp dụng công thức đạo hàm bậc một $(\frac{\partial{\mathcal{L}
 Trong trường hợp $\color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}$ không khả nghịch, ta sẽ có một khái niệm gọi là [Giả Nghịch Đảo](https://vi.wikipedia.org/wiki/Gi%E1%BA%A3_ngh%E1%BB%8Bch_%C4%91%E1%BA%A3o_Moore%E2%80%93Penrose). Vậy trường hợp này, nghiệm tối ưu của bạn toán linear regression sẽ có dạng:
 
 $$
-\color{None}\mathbf{w}^* =~  (\color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}\color{None})^{\dagger}\color{teal}{\mathbf{\bar{X}}}^{T}\color{Lime}{\mathbf{y}} \color{None}
+\color{None}{\mathbf{w}^* =~  (}\color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}\color{None}{)^{\dagger}} \color{teal}{\mathbf{\bar{X}}}^{T}\color{Lime}{\mathbf{y}} 
 $$
 
 **LƯU Ý :** Trong tất cả các thuật toán Machine Learning thì chỉ duy nhất Linear Regression có công thức giải nghiệm tối ưu (vì giải phương tình đạo hàm bằng không dường nhi bất khả thi). Mà với trường hợp bộ dữ liệu quá lớn, máy tính sẽ không có đủ tài nguyên để tính toán nghịch đảo của ma trận trên. 
@@ -209,7 +209,7 @@ Với quan sát ấy, họ dựa vào khái niệm Gradient(có thể coi đây 
 
 Vậy công thức của Gradient Descent như sau : 
 
-![alt text](../assets/ml_2/gradient_fomula.png)
+![bug latex dcm](../assets/ml_2/gradient_fomula.png)
 
 Giải thích sơ qua thì dựa vào vị trí bộ tham số hiện tại thì bộ tham số tiếp theo sẽ tiến gần tới tới điểm tối ưu $\mathbf{w}^*$ với khoảng cách là $\eta$  lần giá trị đạo hàm ở thời điểm hiện tại.
 
