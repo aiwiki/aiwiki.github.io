@@ -8,7 +8,7 @@ tags:
   [bagumeow, machinelearning, supervised, gradientdescent, sklearn]
 description: "Từ Linear (tuyến tính) xuất phát từ linearis trong tiếng Latinh, có nghĩa là thứ gì đó liên quan hoặc tương tự đường thẳng. - ăn cắp từ Thanh Hòa"
 ---
-> Lí do mà mình viết blog vì muốn chia sẻ kiến thức mà mình hiểu đén với mọi người 😁😁
+> Khuyến khích mọi người nên chuyển sang nền đen để có trải nghiệm tốt nhất😁😁
 
 ## I. Giới thiệu
 
@@ -45,7 +45,7 @@ May thay bạn vẫn có thể truy cập vào lịch sử các chuyến đi c�
 | 31 | 62 | 128 |
 | 14 | 28 | 72 |
 
-Giả sử **số km** bạn đi và **số tiện bạn trả** phụ thuộc tuyến tính với nhau thì bạn có tìm ra được một hàm biểu thị mối quan hệ giữa hai đại lượng trên không? Nếu có thì hàm dự đoán sẽ như thế nào? Ở đây dữ liệu của mình sẽ đặt là $\color{teal}{\mathbf{x}} \color{white}{= [x_1,x_2] }$, với $x_1$ biểu diễn số km, $x_2$  biểu diễn số phút. 
+Giả sử **số km** bạn đi và **số tiện bạn trả** phụ thuộc tuyến tính với nhau thì bạn có tìm ra được một hàm biểu thị mối quan hệ giữa hai đại lượng trên không? Nếu có thì hàm dự đoán sẽ như thế nào? Ở đây dữ liệu của mình sẽ đặt là $\color{teal}{\mathbf{x}} \color{None}{= [x_1,x_2] }$, với $x_1$ biểu diễn số km, $x_2$  biểu diễn số phút. 
 Bạn có thể để ý rằng  nếu số km hoặc thời gian càng ngắn thì số tiền phải trả sẽ càng nhiều.
 
 Ở bài trước mình đã nói về thuật toán Supervised Learning thì hàm mình cần biểu diễn sẽ có mục đích như sau: 
