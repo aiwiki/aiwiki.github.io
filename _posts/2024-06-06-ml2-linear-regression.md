@@ -104,9 +104,9 @@ $$
 Để quá trình giải nghiệm tối ưu dễ dàng hơn thì mình sẽ đặt $\color{Lime}{\mathbf{y} = [y_1; y_2; \dots; y_N]} \ \color{None}{\in \mathbb{R}^N }$ , là vector chứa toàn bộ giá trị thực tế trong bộ data, $\color{teal}{\mathbf{\bar{X}} = [\mathbf{\bar{x}}_1; \mathbf{\bar{x}}_2; \dots; \mathbf{\bar{x}}_N ]} \ \color{None}{\in \mathbb{R}^{d \times N}}$
  là ma trận của toàn bộ dữ liệu với $d$  là số chiều của dữ liệu và $N$ là số lượng điểm dữ liệu. Khi này hàm mất mát sẽ được viết dưới dạng ma trận tổng quát đơn giản hơn.
 
-$
+$$
 \mathcal{L}(\mathbf{w})= \frac{1}{2} \| \color{Lime}{\mathbf{y}} \color{None}{-} \color{teal}{ \mathbf{\bar{X}}} \color{None}{\mathbf{w} \|_2^2} ~~~(3)
-$
+$$
 
 Đây là công thức bình phương khoảng cách Euclid  (Chuẩn Euclid, Norm 2). Từ đây ta có thể nói rằng MSE sẽ so sánh vector giá trị thực tế và vector giá trị dự đoán với nhau. Ngoài ra Norm 2  có thể khai triển ra như sau:  $\color{Coral}{\|z\|_2 = \sqrt{z^Tz}}$ .
 
@@ -176,9 +176,9 @@ Và áp dụng công thức đạo hàm bậc một $(\frac{\partial{\mathcal{L}
 
 Trong trường hợp $\color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}$ không khả nghịch, ta sẽ có một khái niệm gọi là [Giả Nghịch Đảo](https://vi.wikipedia.org/wiki/Gi%E1%BA%A3_ngh%E1%BB%8Bch_%C4%91%E1%BA%A3o_Moore%E2%80%93Penrose). Vậy trường hợp này, nghiệm tối ưu của bạn toán linear regression sẽ có dạng:
 
-$
+$$
 \color{None}\mathbf{w}^* =~  (\color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}\color{None})^{\dagger}\color{teal}{\mathbf{\bar{X}}}^{T}\color{Lime}{\mathbf{y}} \color{None}
-$
+$$
 
 **LƯU Ý :** Trong tất cả các thuật toán Machine Learning thì chỉ duy nhất Linear Regression có công thức giải nghiệm tối ưu (vì giải phương tình đạo hàm bằng không dường nhi bất khả thi). Mà với trường hợp bộ dữ liệu quá lớn, máy tính sẽ không có đủ tài nguyên để tính toán nghịch đảo của ma trận trên. 
 
@@ -194,7 +194,7 @@ Với một hàm mất mát là hàm lồi, ta sẽ bắt đầu khởi tạo b�
 
 <figure style="text-align: center;">
   <img src="../assets/ml_2/1dimg_5_0.1_5.gif" width="300" alt="Gradient Descent">
-  <figcaption><i>Hình 5. Ví dụ về gradient descent (Nguồn :<a href="https://machinelearningcoban.com/">machinelearingcoban</a>)</i></figcaption>
+  <figcaption><i>Hình 5. Ví dụ về gradient descent (Nguồn : <a href="https://machinelearningcoban.com/">machinelearingcoban</a>)</i></figcaption>
 </figure>
 
 
@@ -205,10 +205,7 @@ Với quan sát ấy, họ dựa vào khái niệm Gradient(có thể coi đây 
   <figcaption><i>Hình 6. Độ dốc của một hàm lõm </i></figcaption>
 </figure>
 
-Vậy công thức của Gradient Descent như sau : 
-
-
-$\mathbf{w}_{t+1} = \mathbf{w}_t -\eta \nabla_{\mathbf{w}}f(\mathbf{w}_t)$
+Vậy công thức của Gradient Descent như sau : $\mathbf{w}_{t+1} = \mathbf{w}_t -\eta \nabla_{\mathbf{w}}f(\mathbf{w}_t)$
 
 
 Giải thích sơ qua thì dựa vào vị trí bộ tham số hiện tại thì bộ tham số tiếp theo sẽ tiến gần tới tới điểm tối ưu $\mathbf{w}^*$ với khoảng cách là $\eta$  lần giá trị đạo hàm ở thời điểm hiện tại.
