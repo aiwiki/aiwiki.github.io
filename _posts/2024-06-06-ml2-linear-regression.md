@@ -22,7 +22,7 @@ Như vậy nếu dữ liệu ta có $dim=n$ thì siêu phẳng biểu diễn m�
     <img src="../assets/ml_2/ex_linear1.png" alt="Ảnh được sinh bởi Bing Image Creator 😁" width="300" style="display: inline-block;">
     <img src="../assets/ml_2/ex_linear2.png" alt="Ảnh được sinh bởi Bing Image Creator 😁" width="300" style="display: inline-block;">
 </div>
-<figcaption style="text-align: center;"><i>Hình 1. Ví dụ về Linear regression trong không gian 1 và 2 chiều</i></figcaption>
+<figcaption style="text-align: center;"><i>Hình 1. Ví dụ về Linear regression trong không gian 2 và 3 chiều</i></figcaption>
 
 
 Lấy một dữ liệu hai chiều làm ví dụ như sau: Bạn muốn đặt **XanhSM** (mình sẽ giả sử XanhSM có phương tiện với công nghệ tương lai, có thể đi với tốc độ ánh sáng 🤡) để đi từ IUH đến Gigamall với quảng đường $x =4km$ trong **8 phút** .Nhưng không may hôm nay hệ thống tính tiền bị lỗi và bạn không biết giá tiền như thế nào.
@@ -168,7 +168,7 @@ Mà $\color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}$ là một m
 </div>
 <figcaption style="text-align: center;"><i>Hình 4. Ví dụ về hàm MSE trong không gian 1 và 2 chiều</i></figcaption>
 
-Và áp dụng công thức đạo hàm bậc một $(\frac{\partial{\mathcal{L}(\mathbf{w})}}{\partial{\mathbf{w}}} = \color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}\color{None}\mathbf{w} - \color{teal}{\mathbf{\bar{X}}}^T\color{Lime}{\mathbf{y}} \color{None})$ và giải phương trình đạo hàm đó bằng không ta có  .
+Và áp dụng công thức đạo hàm bậc một $(\frac{\partial{\mathcal{L}(\mathbf{w})}}{\partial{\mathbf{w}}} = \color{teal}{\mathbf{\bar{X}}}^T\color{teal}{\mathbf{\bar{X}}}\color{None}{\mathbf{w} -} \color{teal}{\mathbf{\bar{X}}}^T\color{Lime}{\mathbf{y}})$ và giải phương trình đạo hàm đó bằng không ta có  .
 
 ![alt text](../assets/ml_2/prove2.png)
 <!-- $\begin{matrix}
@@ -297,9 +297,9 @@ print("w2 = ", result_least_square[2])
 
 Output :
 
-`w0 =  [25.60877573] 
-w1 =  [13.37537191] 
-w2 =  [-5.26484098]`
+`w0 =  25.6087
+w1 =  13.3753
+w2 =  -5.2648`
 
 <div style="text-align: center;">
     <img src="../assets/ml_2/lab2.png" alt="visualize" width="300" style="display: inline-block;">
@@ -386,9 +386,9 @@ print("w1 = ", model.weights[0][0])
 print("w2 = ", model.weights[1][0])
 ```
 
-`w0 =  23.548239494777462 
-w1 =  13.220760543795164 
-w2 =  -5.147517304599516`
+`w0 =  23.5482 
+w1 =  13.2207 
+w2 =  -5.147`
 
 ### 3.4  So sánh kết quả với Sklearn
 
@@ -409,10 +409,9 @@ print(f"w1 = {model_sk.coef_[0][0]}")
 print(f"w2 = {model_sk.coef_[0][1]}")
 ```
 
-`
- w0 = 25.608775733107606 
- w1 = 13.375371913472891 
- w2 = -5.26484097746805`
+`w0 = 25.6087 
+ w1 = 13.3753 
+ w2 = -5.2648`
 
 Nhận thấy rằng nghiệm của Sklearn và phương pháp LeastSquare là trùng khớp với nhau, Gradient descent sẽ cho kết quả tốt nhưng sẽ tốt hơn nếu có một kỹ thuật training hiệu quả hơn (khum chỉ đâu).
 
@@ -420,7 +419,7 @@ Nhận thấy rằng nghiệm của Sklearn và phương pháp LeastSquare là t
 
 Cảm ơn các bạn đã đọc tới những dòng cuối của bài viết này, ở bài tiếp theo chúng ta sẽ qua thuật toán phân loại họ hàng với Linear Regression nhé.
 
-Ngoài ra còn có những khái niệm mà bạn sẽ gặp trong quá tình training một thuật toán ML như là [Vanishing gradient và Exploding gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem). Nhưng vì nội dung quá dài nên mình xin phép để dành trong một bài khác nhé.
+Ngoài ra còn có những khái niệm mà bạn sẽ gặp trong quá tình training một thuật toán ML như là [Vanishing gradient và Exploding gradient](https://en.wikipedia.org/wiki/Vanishing_gradient_problem), Activation Function. Nhưng vì nội dung quá dài nên mình xin phép để dành trong một bài khác nhé.
 
 **TÀI LIỆU THAM KHẢO :**
 [Machine Learning cơ bản (machinelearningcoban.com)](https://machinelearningcoban.com/)
