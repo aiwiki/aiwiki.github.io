@@ -19,7 +19,7 @@ Nếu các bạn đã từng train mô hình deeplearning thì chắc các bạn
 - Train model
 - Plot biểu đồ đánh giá (`loss`, `accuracy`) trong quá trình train (có thể có hoặc không)
 
-# TorchStudio
+## TorchStudio
 <a id="torch_studio"></a>
 
 Tìm hiểu $1$ chút thì <a href="https://www.torchstudio.ai/">TorchStudio</a> là $1$ phần mềm open source được ông này <img src="/assets/tool_deep/photo_robin_lobel.jpg" alt="robin lobel" width="30" height="40
@@ -34,13 +34,13 @@ Mình sẽ thử demo $1$ đoạn xem thử như nào.
 
 Trông cũng xịn phết 😆
 
-## Load dataset
+### Load dataset
 <a id="load_dataset"></a>
 
 Đầu tiên mình thấy chọn dataset, trên đó đều là những dataset mà pytorch cài sẵn, mình chỉ cần việc load về và dùng thôi. Ngoài ra mình cũng có thể tự custom dataset (GenericLoader) cho project. Các bạn cứ lên trang chủ đọc hướng dẫn là được. Nếu check chọn `code` kế bên thì hệ thống tự sinh ra source code load dataset này, việc còn lại là thêm đường dẫn đến data mình để trên máy. Và thực hiện tiếp 1 vài config thì dataset của mình đã được analysis như hình.
 ![custom dataset](/assets/tool_deep/load_data.png)
 
-## Chọn và train mô hình
+### Chọn và train mô hình
 <a id="train"></a>
 
 Sau khi xong phần dataset, bấm nút New Model (có hình dấu cộng trong hình lục giác) ở bên phải tab Dataset để thêm tạo một model mới.
@@ -52,7 +52,7 @@ Sau đó chỉnh lại `parameters` rồi train thôi. Kết quả sẽ được
 
 Sau khi train xong, có thể export model ra dưới dạng `TorchScript` hoặc `ONNX` nếu muốn.
 
-# TeachableMachine
+## TeachableMachine
 
 <a id="teachable_machine"></a>
 
@@ -62,12 +62,12 @@ Công cụ này dùng framework `tensorflow` để build mô hình.
 
 Oke, giờ mình cũng thử thực hiện train 1 mô hình phân loại ảnh gồm 3 lớp `cat`, `dog`, `lion`.
 
-## Load dataset
+### Load dataset
 <a id="load_dataset_teach"></a>
 Công cụ này cần bạn phải tự cho data vào có thể là dùng `camera` hoặc các file ảnh.
 ![custom dataset](/assets/tool_deep/teachable_load.png)
 
-## Chọn và train mô hình
+### Chọn và train mô hình
 <a id="train_teach"></a>
 Sau khi chuẩn bị dữ liệu xong, thì mình sẽ chỉnh 1 số `parameters` rồi thực hiện train.
 
@@ -79,13 +79,13 @@ phân loại hình ảnh.
 
 ồ 🤓! con này vẫn ra `dog` và chính xác tuyệt đối luôn, quá đỉnh.
 
-## Deploy model
+### Deploy model
 <a id="save_teach"></a>
 Cuối cùng là lưu model và lấy code triển khai bằng cách chọn `Export Model`
 
 ![custom dataset](/assets/tool_deep/save_teach.png)
 
-#  Tổng kết
+##  Tổng kết
 
 Vậy là mình đã giới thiệu cho các bạn biết đến $2$ công cụ hỗ trợ các bạn train nhanh $1$ mô hình deep với $2$ framework khác nhau trên $2$ nền tảng. 
 
