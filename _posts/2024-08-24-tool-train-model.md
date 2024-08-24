@@ -3,7 +3,7 @@ layout: post
 title: Một vài công cụ train mô hình
 categories: [data science]
 author: qxnam
-tags: [pytorch, tensorflow, IDE]
+tags: [pytorch, tensorflow, IDE, tool]
 date:   2024-08-24
 usemathjax: true
 image: assets/images/docker/intro.png
