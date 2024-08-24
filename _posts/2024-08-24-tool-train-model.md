@@ -4,7 +4,7 @@ title: Một vài công cụ train mô hình
 categories: [data science]
 author: qxnam
 tags: [pytorch, tensorflow, IDE]
-date:   2024-04-23
+date:   2024-08-24
 usemathjax: true
 image: assets/images/docker/intro.png
 description: 'Khi train mô hình deeplearning các bạn sẽ phải chuẩn bị dữ liệu và xây dựng mô hình, bài viết này mình sẽ chia sẻ 1 vài công cụ hữu ích giúp bạn tiết kiệm thời gian và dễ dàng train mô hình.'
@@ -19,10 +19,10 @@ Nếu các bạn đã từng train mô hình deeplearning thì chắc các bạn
 - Train model
 - Plot biểu đồ đánh giá (`loss`, `accuracy`) trong quá trình train (có thể có hoặc không)
 
-# <a href="https://www.torchstudio.ai/">TorchStudio</a>
+# TorchStudio
 <a id="torch_studio"></a>
 
-Tìm hiểu $1$ chút thì đây là $1$ phần mềm open source được ông này <img src="/assets/tool_deep/photo_robin_lobel.jpg" alt="robin lobel" width="30" height="40
+Tìm hiểu $1$ chút thì <a href="https://www.torchstudio.ai/">TorchStudio</a> là $1$ phần mềm open source được ông này <img src="/assets/tool_deep/photo_robin_lobel.jpg" alt="robin lobel" width="30" height="40
 "> và dùng framework chính là <a href="https://pytorch.org/">pytorch</a>. Có thể xem đây như là giao diện đồ hoạ của pytorch.
 
 Việc cài đặt các bạn cứ theo hướng dẫn của họ là được.
@@ -52,9 +52,11 @@ Sau đó chỉnh lại `parameters` rồi train thôi. Kết quả sẽ được
 
 Sau khi train xong, có thể export model ra dưới dạng `TorchScript` hoặc `ONNX` nếu muốn.
 
-# <a href="https://teachablemachine.withgoogle.com/train">TeachableMachine</a>
+# TeachableMachine
+
 <a id="teachable_machine"></a>
-Khác với `TorchStudio` chạy trên phần mềm tải về thì `TeachableMachine` chạy trên `drive`. Dữ liệu của bạn sẽ được tải lên drive để thực hiện.
+
+Khác với <a href="https://www.torchstudio.ai/">TorchStudio</a> chạy trên phần mềm tải về thì <a href="https://teachablemachine.withgoogle.com/train">TeachableMachine</a> chạy trên `drive`. Dữ liệu của bạn sẽ được tải lên drive để thực hiện.
 
 Công cụ này dùng framework `tensorflow` để build mô hình.
 
