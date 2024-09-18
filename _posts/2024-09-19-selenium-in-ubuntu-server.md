@@ -16,6 +16,8 @@ published: true
 
 Xin chào $5$ tỷ anh em, mình đang làm $1$ công việc cũng hết sức phổ biến hiện nay là cào dữ liệu. Nhưng vấn đề của mình không hoàn toàn là phải dùng selenium hỗ trợ lấy `page source` để trích xuất dữ liệu, nhưng để tối ưu nguồn tài nguyên thì mình có $1$ mini-pc đang trống nên mình quyết định dùng nó để phục vụ việc cào dữ liệu.
 
+![selenium](/assets/selenium/selenium.png)
+
 Mình dùng selenium cũng không nhiều nhưng mình cũng biết 1 số **option** hỗ trợ tối ưu như:
 ```python
 from selenium.webdriver.chrome.options import Options
@@ -110,7 +112,7 @@ $ source venv/bin/activate
 Mình sẽ thử thực hiện lấy thông tin các công ty trong trang web `https://pharmed.vn/exhibitors/companies`, trang web này cần có mã để accept nhé!
 
 Đây là mẫu
-![sample](./assets/selenium/page_crawl.png)
+![sample](/assets/selenium/page_crawl.png)
 
 Mọi người có thể tham khảo source code của mình nhé.
 ```python
