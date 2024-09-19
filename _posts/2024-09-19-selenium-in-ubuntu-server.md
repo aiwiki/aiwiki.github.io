@@ -295,4 +295,9 @@ if __name__ == "__main__":
     driver.quit()
 ```
 
+Tips nhỏ để các bạn có thể xem giao diện trong đó chính là dùng
+```python
+driver.save_screenshot(<path_save>)
+```
+
 Chúc các bạn thành công!
