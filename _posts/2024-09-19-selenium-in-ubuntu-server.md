@@ -109,6 +109,18 @@ Activate môi trường ảo đó.
 $ source venv/bin/activate
 ```
 
+Rồi cài đặt các thư viện cần thiết trong file `requirements.txt`.
+```txt
+selenium
+webdriver_manager
+pandas
+bs4
+openpyxl
+```
+```bash
+$ pip3 install -r requirements.txt
+```
+
 Mình sẽ thử thực hiện lấy thông tin các công ty trong trang web `https://pharmed.vn/exhibitors/companies`, trang web này cần có mã để accept nhé!
 
 Đây là mẫu
