@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hướng dẫn cài đặt visual studio code lập trình python trên macbook chip apple silicon (M1/M2/M3)
+title: Hướng dẫn cài đặt visual studio code lập trình python trên macbook chip apple sillicon (M1/M2/M3)
 categories: [data engineer]
 author: qxnam
 tags: [setup, vscode, python, macOS]
@@ -13,7 +13,7 @@ published: true
 ## Giới thiệu
 **Visual Studio Code** là một trình soạn thảo mã nguồn miễn phí, mạnh mẽ và linh hoạt, được phát triển bởi Microsoft. Nó hỗ trợ nhiều ngôn ngữ lập trình, trong đó có Python, và cung cấp nhiều tiện ích mở rộng giúp tăng năng suất làm việc.
 
-**MacBook** sử dụng chip Apple Silicon (M1, M2, M3) mang lại hiệu suất vượt trội và tiết kiệm năng lượng. Tuy nhiên, một số bước cài đặt có thể khác so với các máy Mac sử dụng chip Intel. Hướng dẫn này sẽ giúp bạn cài đặt VS Code và thiết lập môi trường Python một cách dễ dàng trên MacBook Apple Silicon.
+**MacBook** sử dụng chip Apple Sillicon (M1, M2, M3) mang lại hiệu suất vượt trội và tiết kiệm năng lượng. Tuy nhiên, một số bước cài đặt có thể khác so với các máy Mac sử dụng chip Intel. Hướng dẫn này sẽ giúp bạn cài đặt VS Code và thiết lập môi trường Python một cách dễ dàng trên MacBook Apple Silicon.
 
 ## Yêu cầu hệ thống
 Trước khi bắt đầu, hãy đảm bảo rằng bạn đáp ứng các yêu cầu sau:
