@@ -11,26 +11,22 @@ published: true
 ---
 
 ## Giới thiệu
-<a id="introduction"></a>
-
 **Visual Studio Code** là một trình soạn thảo mã nguồn miễn phí, mạnh mẽ và linh hoạt, được phát triển bởi Microsoft. Nó hỗ trợ nhiều ngôn ngữ lập trình, trong đó có Python, và cung cấp nhiều tiện ích mở rộng giúp tăng năng suất làm việc.
 
 **MacBook** sử dụng chip Apple Silicon (M1, M2, M3) mang lại hiệu suất vượt trội và tiết kiệm năng lượng. Tuy nhiên, một số bước cài đặt có thể khác so với các máy Mac sử dụng chip Intel. Hướng dẫn này sẽ giúp bạn cài đặt VS Code và thiết lập môi trường Python một cách dễ dàng trên MacBook Apple Silicon.
 
 ## Yêu cầu hệ thống
-<a id="requirement_system"></a>
 Trước khi bắt đầu, hãy đảm bảo rằng bạn đáp ứng các yêu cầu sau:
-
 - Máy MacBook chạy macOS (10.9 trở lên)
 - Kết nối internet ổn định.
 
 ## Cài đặt thủ công
-Cài đặt Python trực tiếp từ trang chính thức của <a href="https://www.python.org/">Python.org</a>.
+Cài đặt python trực tiếp từ trang chính thức của <a href="https://www.python.org/">python.org</a>.
 
 ### Bước 1: Cài đặt python 3.10.8 (khuyến khích)
-Mở trình duyệt web và truy cập https://www.python.org/downloads/release/python-3108/
+Mở trình duyệt web và truy cập <a href="https://www.python.org/downloads/release/python-3108">https://www.python.org/downloads/release/python-3108/</a>
 
-Các bạn cuộn trang xuống dưới sẽ thấy được các loại nền tảng để cài python và click vào version dành cho macOS như hình để tải xuống.
+Bạn cuộn trang xuống dưới sẽ thấy được các loại nền tảng để cài python và click vào version dành cho macOS như hình để tải xuống.
 ![python-version](/assets/images/setup-python-on-mac/files-python.png)
 
 File sau khi tải xong, đúp chuột vào biểu tượng để mở file cài đặt.
@@ -44,6 +40,7 @@ Step 2: Read Me, click `Continue`.
 
 Step 3: License, click `Continue` > `Agree`.
 ![install-3-1](/assets/images/setup-python-on-mac/install-3-1.png)
+
 ![install-3-2](/assets/images/setup-python-on-mac/install-3-2.png)
 
 Step 4: Khi bạn đồng ý cấp phép xong sẽ được chuyển thẳng qua `Installation Type`. Click vào `Install` để cài đặt.
@@ -55,12 +52,12 @@ Bạn cần nhập password hoặc xác thực vân tay để cấp phép cài �
 Bạn mở messenger check xem có em gái nào nhắn tin cho không còn rep kịp là nó cài xong 🤗.
 ![install-4-3](/assets/images/setup-python-on-mac/install-4-3.png)
 
-Step 5: Oke nó cài xong sẽ tự mở nơi nó cài lên nha (các bạn có thể tắt đi nếu muốn).
+Step 5: Oke nó cài xong sẽ tự mở nơi nó cài lên nha (bạn có thể tắt đi nếu muốn).
 ![install-5-1](/assets/images/setup-python-on-mac/install-5-1.png)
 
 Khi bạn chọn `close` thì sẽ có 2 option để bạn chọn:
 - `Keep` giữ lại gói cài đặt ở màn hình desktop.
-- `Move to Trash` ném vào thùng rác cho bớt ngứa mắt 😏 (tôi chọn cái này nha).
+- `Move to Trash` ném vào thùng rác cho bớt ngứa mắt 😏 (mình chọn cái này nha).
 ![install-5-2](/assets/images/setup-python-on-mac/install-5-2.png)
 
 Vậy là mình cài xong python 3.10.8 rồi, giờ mình thử kiểm tra xem đã thật sự cài được chưa bằng lệnh này trên terminal nhé:
@@ -77,19 +74,19 @@ Mở trình duyệt web và truy cập https://code.visualstudio.com/Download. C
 
 Ngồi check tin nhắn tiếp đi, hơn 100MB lận 🙃.
 
-Oke xong rồi các bạn nhấn đúp vào file để giải nén.
+Oke xong rồi bạn nhấn đúp vào file để giải nén.
 ![vscode-app](/assets/images/setup-python-on-mac/vscode-app.png)
 
 Di chuyển file vừa giải nén đó vào `Applications` bằng cách kéo thả. Vì mình đã làm trước đó nên lần này nó hiểu thị 2 cái (1 cái là shortcut)
 ![vscode-move](/assets/images/setup-python-on-mac/vscode-move.gif)
 
-Các bạn đúp vào icon .app để mở vscode lên, đây là màn hình đầu tiên.
+Bạn đúp chuột vào icon `.app` để mở `vscode` lên, đây là màn hình đầu tiên.
 ![vscode-ui](/assets/images/setup-python-on-mac/vscode-ui.png)
 
-Nếu có thông báo như thế này thì cứ tick vào Trust > Yes nhé
+Nếu có thông báo như thế này thì cứ tick vào `Trust` > `Yes` nhé
 ![trust_author](/assets/images/setup-python-on-mac/trust_author.png)
 
-Oke vậy là các bạn đã hoàn thành việc cài đặt vscode.
+Oke vậy là bạn đã hoàn thành việc cài đặt vscode.
 
 
 
@@ -103,13 +100,13 @@ code .
 ```
 ![vscode-open-ws](/assets/images/setup-python-on-mac/vscode-open-ws.gif)
 
-Hoặc bạn cũng có thể mở bằng cách mở folder trên vscode
+Hoặc bạn cũng có thể mở bằng cách mở folder trên `vscode`
 ![vscode-open-ws](/assets/images/setup-python-on-mac/open-ws-2.gif)
 
-Cài đặt gói mở rộng hỗ trợ lập trình **python** bằng `extensions`
+Cài đặt gói mở rộng hỗ trợ lập trình `python` bằng `extensions`
 ![extensions](/assets/images/setup-python-on-mac/extension.png)
 
-Các bạn tạo file *.py để thử chương trình đầu tiên nhé!
+Bạn tạo file `*.py` để thử chương trình đầu tiên nhé!
 ![vscode-create-file](/assets/images/setup-python-on-mac/create-file.gif)
 
 Khi chạy file có 2 cách để chạy: 
@@ -117,21 +114,24 @@ Khi chạy file có 2 cách để chạy:
 ```bash
 python3.10 lession_01.py # hoặc python3 lession_01.py
 ```
-Việc các bạn dùng `python3.10` là để chỉ định đúng version 3.10 để chạy, nếu để `python3` vẫn chạy được nhưng nếu bạn cài nhiều version khác như 3.8, 3.9 thì có thể phiên bản mặc định là các version đó có thể gây lỗi do phiên bản cũ. (Ví dụ từ phiên bản 3.10 trở lên python hỗ trợ thêm `match - case` chức năng giống `switch - case` bên **c/c++**)
+Việc bạn dùng `python3.10` là để chỉ định đúng version 3.10 để chạy, nếu để `python3` vẫn chạy được nhưng nếu bạn cài nhiều version khác như 3.8, 3.9 thì có thể phiên bản mặc định là các version đó có thể gây lỗi do phiên bản cũ. (Ví dụ từ phiên bản 3.10 trở lên python hỗ trợ thêm `match - case` chức năng giống `switch - case` bên **c/c++**)
 
 2. Dùng extensions `code runner`.
-Các bạn cài extensions này vào giống cách cài extensions `python`.
+bạn cài extensions này vào giống cách cài extensions `python`.
 ![code-runner](/assets/images/setup-python-on-mac/code-runner.png)
 Nhưng để chạy được thì cần phải config thêm 1 số thứ linh tinh nữa:
 - Mặc định code runner chạy trên terminal
 ![code-runner-config-01.png](/assets/images/setup-python-on-mac/code-runner-config-01.png)
+
 - Thay đổi cách gọi file python: Search từ khóa `Executor Map` > `Edit in settings.json`, thay đổi thông tin tại dòng chứa python như hình.
 ![code-runner-config-02.png](/assets/images/setup-python-on-mac/code-runner-config-02.png)
+
 - Khi chạy chỉ cần ấn vào biểu tượng run như hình
 ![code-runner-run.png](/assets/images/setup-python-on-mac/code-runner-run.png)
 
 ## Cài đặt bằng homebrew
 <a href="https://brew.sh/">Homebrew</a> là một trình quản lý gói (package manager) phổ biến trên macOS, giúp bạn dễ dàng cài đặt và quản lý các phần mềm, thư viện cần thiết cho phát triển phần mềm.
+
 1. Mở Terminal
 - Nhấn `Cmd + Space` để mở Spotlight Search.
 - Gõ Terminal và nhấn Enter để mở ứng dụng Terminal.
@@ -200,8 +200,11 @@ Vì `venv` là bản sao của python nên nó cũng khá nặng ký, nếu khô
 
 ## Jupyter notebook
 Jupyter Notebook là một ứng dụng web mã nguồn mở cho phép bạn tạo và chia sẻ tài liệu có chứa mã nguồn trực tiếp, phương trình, hình ảnh và chú thích văn bản. Nó là công cụ tuyệt vời cho việc phân tích dữ liệu, trực quan hóa, và xây dựng mô hình máy học.
+
 Để cài đặt `jupyter notebook` thì bạn phải cài `python` trước đó. Và để tốt cho việc sử dụng mình nên tạo `venv` và dùng như 1 kernel chuyên biệt.
+
 Mỗi cell trong notebook là 1 chương trình `python`.
+
 1. Cài `extensions` 
 ![jupyter](/assets/images/setup-python-on-mac/jupyter.png)
 
@@ -230,17 +233,16 @@ Có 2 thành phần chính trong notebook:
 ![Keyboard](/assets/images/setup-python-on-mac/Keyboard.png)
 
 ## Một số extension hay ho
-- background: dành cho mấy đứa wibu vừa code vừa ngắm loli
+1. background: dành cho mấy đứa wibu vừa code vừa ngắm loli
 ![bg](/assets/images/setup-python-on-mac/bg.png)
 
-- vscode-pdf: Vừa đọc paper vừa code
+2. vscode-pdf: Vừa đọc paper vừa code
 ![pdf](/assets/images/setup-python-on-mac/pdf.png)
 
-- Material Icon Theme: Thêm biểu tượng cho file/folder cho dễ nhìn
+3. Material Icon Theme: Thêm biểu tượng cho file/folder cho dễ nhìn
 ![mater](/assets/images/setup-python-on-mac/mater.png)
 ![mater-icon.png](/assets/images/setup-python-on-mac/mater-icon.png)
 
-- cập nhật tiếp chứ buồn ngủ quá rồi ...
+cập nhật sau chứ buồn ngủ quá rồi ...
 
-
-Vậy là mình đã hướng dẫn các bạn cách thiết lập môi trường học lập trình rồi nhé. Chúc các bạn thành công!
+Vậy là mình đã hướng dẫn bạn cách thiết lập môi trường học lập trình rồi nhé. Chúc bạn thành công!
